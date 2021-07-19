@@ -1,0 +1,3 @@
+/*! pro.jsonlint.com 2021-07-19 */
+
+var jsl=void 0===jsl?{}:jsl;jsl.format=function(){function l(a,e){return new Array(e+1).join(a)}return{formatJson:function(a){var e,r=0,n="    ",c="",s=0,t=!1,o=null;for(r=0,e=a.length;r<e;r+=1)switch(o=a.charAt(r)){case"{":case"[":t?c+=o:(c+=o+"\n"+l(n,s+1),s+=1);break;case"}":case"]":c+=t?o:"\n"+l(n,s-=1)+o;break;case",":c+=t?o:",\n"+l(n,s);break;case":":c+=t?o:": ";break;case" ":case"\n":case"\t":t&&(c+=o);break;case'"':0<r&&"\\"!==a.charAt(r-1)&&(t=!t),c+=o;break;default:c+=o}return c}}}();
