@@ -233,7 +233,7 @@
         let questionData = [];
         function updateMarkdown() {
             Array.from(document.querySelectorAll(".markdown")).forEach((el) => {
-                el.innerHTML = marked(el.innerHTML);
+                el.innerHTML = marked.parse(el.innerHTML);
             });
         }
 
