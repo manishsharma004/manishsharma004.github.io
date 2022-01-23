@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://leetcode.com/static/CACHE/css/output.13760a7a574c.css" />
+    <link rel="stylesheet" href="https://leetcode.com/static/bootstrap/dist/css/bootstrap.min.css?v=3.3.7" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+    <link rel="stylesheet" href="node_modules/codemirror/lib/codemirror.css">
+    <link rel="stylesheet" href="node_modules/codemirror/theme/ambiance.css">
+    <style>
+        img {
+            max-width: 100%;
+        }
+        .question-link {
+            cursor: pointer;
+            margin: 3px 10px;
+            border: 1px solid #ccc;
+            padding: 1px 5px;
+        }
+
+        #sidebar {
+            width: 300px;
+            border-right: 1px solid #444;
+            height: 100%;
+            overflow: auto;
+            float: left;
+            height: 100%;
+            overflow: auto;
+        }
+
+        #question {
+            width: calc(100% - 300px);
+            padding: 10px 20px;
+            float: left;
+            height: 100%;
+            overflow: auto;
+        }
+ 
+        .tabs .tab-link {
+            border: 1px solid #ccc;
+            padding: 1rem 2rem;
+            cursor: pointer;
+            border-radius: 10px 10px 0 0; 
+            margin-right: 3px;
+        }
+        .tabs .tab-link.selected {
+            background-color: #b6a7a4;
+            color: rgb(0, 0, 0);
+        }
+        .editor.hidden {
+            display: none;
+        }
+        .editor {
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content" style="height: 100%"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="node_modules/codemirror/lib/codemirror.js"></script>
+    <script src="node_modules/codemirror/mode/javascript/javascript.js"></script>
+    <script src="node_modules/codemirror/mode/python/python.js"></script>
+    <script src="node_modules/codemirror/mode/clike/clike.js"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        messageStyle: "none",
+        "HTML-CSS": {
+            showMathMenu: false,
+            linebreaks: false,
+        },
+        tex2jax: {
+            inlineMath: [["$", "$"]]
+        }
+        });
+    </script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+    <script>
+        function renderMath(...selectors) {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub, ...selectors], () => {
+                console.log('mathjax queue complete');
+            })
+        }
+    </script>
+    <script>
+        function replaceRelativePaths(text) {
+            return typeof text === "string"
+                ? text.replace(
+                    /]\(\.\.\//g,
+                    "](https://leetcode.com/explore/interview/"
+                )
+                : "";
+        }
+        Handlebars.registerHelper("replace_relative_paths", replaceRelativePaths);
+    </script>
+    <script>
+        /**
+         * @param {string}  html
+         */
+        function transform(html) {
+            return typeof html === "string"
+                ? html
+                    .replace(/\$\$(.*?)\$\$/g, (match, sub1) => {
+                        // console.log("match", match);
+                        return `<span class=".math">$${sub1}$</span>`;
+                    })
+                    .split("\n")
+                    .map((s) =>
+                        s.replace(
+                            /\<pre\>(\w*)\<\/pre\>/g,
+                            (match, sub1) => `<code>${sub1}</code>`
+                        )
+                    )
+                    .join("\n")
+                : "";
+        }
+        Handlebars.registerHelper("transform", transform);
+    </script>
+    <script>
+        function getHtml(text) {
+            const div = create("div");
+            const a = create("a");
+
+            div.innerHTML = text;
+            a.href = div.querySelector("iframe")?.src;
+            a.innerHTML = a.href;
+            a.target = "_blank";
+            return a.outerHTML;
+        }
+        /**
+         * @param {string}  html
+         */
+        function replaceIframeWithSrc(html) {
+            // console.log('html', html)
+            return typeof html === "string"
+                ? html.replace(/\<iframe (.*)\/iframe>/g, (match) => {
+                    // console.log('matches', match)
+                    const content = getHtml(match);
+                    // console.log('content', content);
+                    return content;
+                })
+                : "";
+        }
+        Handlebars.registerHelper(
+            "replace_iframe_with_src",
+            replaceIframeWithSrc
+        );
+    </script>
+    <script>
+        function fixRelativeImagePaths() {
+            Array.from(document.querySelectorAll('img')).forEach(img => {
+                console.log('src', img.src);
+
+                img.src = img.src.replace('http://127.0.0.1:5500/', 'https://leetcode.com/explore/interview/');
+            })
+        }
+    </script>
+    <script>
+        function sanitize(html) {
+            return [transform, replaceIframeWithSrc, replaceRelativePaths].reduce(
+                (html, fn) => {
+                    return fn(html);
+                },
+                html
+            );
+        }
+        Handlebars.registerHelper("sanitize", sanitize);
+    </script>
+
+    <script type="text/template" id="section-template">
+      {{#each data as |section|}}
+          <div>
+              <p>{{section.title}}</p>
+              <ul style="list-style:none; padding: 0">
+                  {{#each section.items as |item|}}
+                  <li class="question-link" onclick="handleQuestionClick({{section.id}}, {{item.id}})">{{item.title}}</li>
+                  {{/each}}
+              </ul>
+          </div>
+      {{/each}}
+    </script>
+    <script type="text/template" id="question-template">
+      <h2>{{questionTitle}}</h2>
+      <div id="content">
+          {{#if content}}
+              {{{content}}}
+          {{/if}}
+          {{#if html}}
+              {{{html}}}
+          {{/if}}
+      </div>
+      <div><p>Submit</p>
+          <a target="_blank" href="{{url}}">{{url}}</a>
+      </div>
+      <div id="hints">
+          <h3>Hints</h3>
+          <ul>
+              {{#each hints as |hint|}}
+                  <li>{{{sanitize hint}}}</li>
+              {{/each}}
+          </ul>
+      </div>
+      <div class="markdown">
+          {{{sanitize solution.content}}}
+      </div>
+    </script>
+
+    <script type="text/javascript">
+        /**
+         * @returns {HTMLElement}
+         */
+        function get(selector) {
+            return document.querySelector(selector);
+        }
+
+        /**
+         * @template {keyof HTMLElementTagNameMap} K
+         * @param {K} el
+         * @returns {HTMLElementTagNameMap[K]}
+         */
+        function create(el) {
+            return document.createElement(el);
+        }
+
+        let questionData = [];
+        function updateMarkdown() {
+            Array.from(document.querySelectorAll(".markdown")).forEach((el) => {
+                el.innerHTML = marked(el.innerHTML);
+            });
+        }
+
+        const modeAliases = {
+            'python3': 'python',
+            'java': 'text/x-java'
+        };
+
+        function getMode(mode) {
+            if (typeof modeAliases[mode] === "string") {
+                return modeAliases[mode];
+            }
+
+            return mode;
+        }
+
+        function TabbedEditor(container, codes) {
+            const editor = create('div');
+
+            editor.innerHTML = `
+            <div>
+                <div class="tabs">
+                    ${codes.map((code, index) => {
+                        return `<span class="tab-link${index === 0 ? ' selected' : ''}">${code.langSlug}</span>`
+                    }).join('')}
+                </div>
+                <div class="editors">
+                    ${codes.map(code => {
+                        return `<div class="editor hidden" id="${code.langSlug}"><pre>${code.code}</pre></div>`;
+                    }).join('')}
+                </div>
+            </div>
+            `;
+            container.parentElement.insertBefore(editor, container);
+            const init = (div, text, code) => {
+                div.innerHTML = ""
+                CodeMirror(div, {
+                    value: text,
+                    mode: getMode(code.id),
+                    // indentWithTabs: true,
+                    // smartIndent: true,
+                    lineNumbers: true,
+                    lineWrapping: true,
+                    // matchBrackets: true,
+                    // autofocus: true,
+                    theme: "ambiance",
+                    minHeight: 100
+                })
+            }
+            Array.from(editor.querySelectorAll(".editor")).forEach((code, index) => {
+                const div = create('div');
+                code.classList.forEach(c => div.classList.add(c));
+                if (index == 0) {
+                    div.classList.remove('hidden')
+                }
+                div.type = "text/x-java"
+                const text = code.innerText.trim();
+                code.innerHTML = "";
+                code.replaceWith(div);
+                console.log('language', code.id)
+                
+                // init();
+                editor.querySelector(`.tabs .tab-link:nth-child(${index+1})`).addEventListener('click', (e) => {
+                    Array.from(editor.querySelectorAll(`.tabs .tab-link`)).forEach(link => link.classList.remove('selected'));
+                    e.target.classList.add('selected');
+                    Array.from(div.parentElement.querySelectorAll('.editor')).forEach(e => e.classList.add('hidden'))
+                    div.classList.remove('hidden');
+                    init(div, text, code)
+                });
+                if (index === 0) {
+                    init(div, text, code);
+                }
+            })
+        }
+
+        const playgroundRegex = /https\:\/\/leetcode.com\/playground\/([\w\d_]+)/;
+        function updatePlaygrounds() {
+            Array.from(document.querySelectorAll("a")).forEach(async (a) => {
+                if (playgroundRegex.test(a.href)) {
+                    const id = a.href.split("/")[4];
+                    console.log("playgroundId", id);
+                    const response = await fetch(
+                        "http://localhost:8080/playground/" + id
+                    ).then((r) => r.json());
+                    TabbedEditor(a, response.data.allPlaygroundCodes)
+                    //     .map(
+                    //         (p) =>
+                    //             `<pre class="code" id="${p.langSlug}">
+                    //                 ${p.code}
+                    //             </pre>`
+                    //     )
+                    //     .join("<br/>");
+                }
+            });
+        }
+
+        function updateQuestion(question) {
+            if (question.questionData) {
+                question.questionData.url = `https://www.leetcode.com${question.questionData.submitUrl.replace(
+                    "submit/",
+                    ""
+                )}`;
+                let html = Handlebars.compile(get("#question-template").innerHTML)(
+                    question.questionData
+                );
+
+                // console.log('html', html);
+                get("#question").innerHTML = html;
+            } else {
+                get("#question").innerHTML = `<h3>No Data</h3>`;
+            }
+            setTimeout(updateMarkdown, 100);
+            setTimeout(updatePlaygrounds, 100);
+            setTimeout(renderMath, 100, '.math');
+            setTimeout(fixRelativeImagePaths, 100);
+        }
+        function addParams(params) {
+            const location = window.location;
+            const search = new URLSearchParams(location.search);
+            for (let name in params) {
+                search.set(name, params[name]);
+            }
+
+            location.href = `${location.origin}${location.pathname
+                }?${search.toString()}`;
+        }
+        function handleQuestionClick(sectionId, questionId) {
+            // const question = questionData.find(d => d.id == sectionId).items.find(d => d.id == questionId)
+            addParams({ sectionId, questionId });
+            // console.log('question', question)
+            // updateQuestion(question);
+        }
+        HTMLElement.prototype.get = HTMLElement.prototype.querySelector;
+        HTMLElement.prototype.getAll = HTMLElement.prototype.querySelectorAll;
+
+        async function main() {
+            const search = new URLSearchParams(document.location.search);
+            const company = search.get("company");
+            const sectionId = search.get("sectionId");
+            const questionId = search.get("questionId");
+
+            const companies = [
+                "adobe",
+                "apple",
+                "coding-interview-strategy",
+                "google",
+                "linkedin",
+                "top-interview-questions-hard",
+                "uber",
+                "amazon",
+                "bloomberg",
+                "facebook",
+                "leapai",
+                "microsoft",
+                "top-interview-questions-easy",
+                "top-interview-questions-medium",
+                "yelp",
+            ];
+            function getCompanies() {
+                const container = create("ol");
+                for (let company of companies) {
+                    const li = create("li");
+                    const a = create("a");
+                    a.href = "?company=" + company;
+                    a.innerHTML = company;
+
+                    li.appendChild(a);
+                    container.appendChild(li);
+                }
+
+                return container;
+            }
+
+            console.log("company", company);
+
+            if (!company) {
+                document.querySelector("#content").appendChild(getCompanies());
+            } else {
+                const response = await fetch(company + ".json");
+                const data = await response.json();
+                questionData = data;
+                console.log(data);
+                get("#content").innerHTML = `
+                    <div style="height: 100%;">
+                        <div id="sidebar"></div>
+                        <div id="question">
+                        </div>
+                    </div>
+                `;
+                if (sectionId && questionId) {
+                    const question = questionData
+                        .find((d) => d.id == sectionId)
+                        .items.find((d) => d.id == questionId);
+                    console.log("question", question);
+                    updateQuestion(question);
+                }
+                get("#content").get("#sidebar").innerHTML = Handlebars.compile(
+                    get("#section-template").innerHTML
+                )({ data });
+            }
+        }
+
+        document.onreadystatechange = function () {
+            if (document.readyState === "complete") {
+                main();
+            }
+        };
+    </script>
+</body>
+
+</html>

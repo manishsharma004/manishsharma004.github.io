@@ -176,7 +176,6 @@
                 var dateObject = new Date();
                 files[i].id = parseInt((new Date()).getTime() + "" + parseInt(Math.random() * 1000000));
                 addHeaderFile(files[i], function (file) {
-                    console
                     $('<div class="jquery-file-btn btn" data-name="' + file.name + '"data-id="' + file.id + '"><i class="icon-file"></i>' + file.name + '</div>').insertBefore($(".add-file"));
                 });
             }
@@ -224,8 +223,12 @@
                     <title></title>
                     <meta charset='UTF-8'/>
                 ${printHeaderFiles()}
-                ${editor.getValue()}
-                </body></html>`;
+                ${editor.getValue()}` + 
+                '</' + 'body></html>';
+            console.log('editor value', editor.getValue());
+            console.log('header files', headerFiles);
+            localStorage.setItem('editorValue', editor.getValue());
+            localStorage.setItem('headerFiles', JSON.stringify(headerFiles));
             viewport.src = URL.createObjectURL(new Blob([html], { type: "text/html" }));
         }
         var viewport = $(".view-port")[0];
@@ -325,6 +328,18 @@
                 $(viewport).css({ width: newWidth, height: newHeight });
             }
         }
+        function loadContent() {
+            const content = localStorage.getItem('editorValue');
+            editor.setValue(content, 1);
+        }
+        function loadHeaderFiles() {
+            headerFiles = JSON.parse(localStorage.getItem('headerFiles'))
+
+            for(let id in headerFiles) {
+                const file = headerFiles[id];
+                $('<div class="jquery-file-btn btn" data-name="' + file.name + '"data-id="' + file.id + '"><i class="icon-file"></i>' + file.name + '</div>').insertBefore($(".add-file"));
+            }
+        }
         $(document).ready(function () {
             initVerticalDragbar("vertical-dragbar");
             initHorizontalDragbar("horizontal-dragbar");
@@ -342,6 +357,8 @@
                 resizeViewport();
             })
             $("#is-landscape").data('checked', $("#is-landscape")[0].checked);
+            loadContent();
+            loadHeaderFiles();
         })
     </script>
 </body>
