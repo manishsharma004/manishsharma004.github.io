@@ -316,7 +316,7 @@
                     const id = a.href.split("/")[4];
                     console.log("playgroundId", id);
                     const response = await fetch(
-                        "http://localhost:8080/playground/" + id
+                        "https://leetcode-questions-fetch.herokuapp.com/playground/" + id
                     ).then((r) => r.json());
                     TabbedEditor(a, response.data.allPlaygroundCodes)
                     //     .map(
