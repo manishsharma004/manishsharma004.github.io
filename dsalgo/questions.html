@@ -102,6 +102,12 @@
         Handlebars.registerHelper("replace_relative_paths", replaceRelativePaths);
     </script>
     <script>
+        function add(a, b) {
+            return Number(a) + Number(b);
+        }
+        Handlebars.registerHelper('add', add);
+    </script>
+    <script>
         /**
          * @param {string}  html
          */
@@ -178,10 +184,10 @@
     <script type="text/template" id="section-template">
       {{#each data as |section|}}
           <div>
-              <p>{{section.title}}</p>
+              <p>{{section.title}} ({{section.items.length}})</p>
               <ul style="list-style:none; padding: 0">
                   {{#each section.items as |item|}}
-                  <li class="question-link" onclick="handleQuestionClick({{section.id}}, {{item.id}})">{{item.title}}</li>
+                  <li class="question-link" onclick="handleQuestionClick({{section.id}}, {{item.id}})">{{add @index 1}} {{item.title}}</li>
                   {{/each}}
               </ul>
           </div>
