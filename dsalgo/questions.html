@@ -180,14 +180,34 @@
         }
         Handlebars.registerHelper("sanitize", sanitize);
     </script>
+    <script>
+        function getLSKey(sectionId, questionId) {
+            return `completed-${sectionId}-${questionId}`
+        }
+        function handleCheck(sectionId, questionId) {
+            const key = getLSKey(sectionId, questionId);
 
+            localStorage.setItem(key,  localStorage.getItem(key) === "true" ? "false" : "true");
+        }
+
+        function loadCompletedItems () {
+            const regex = /completed-\d+-\d+/
+            const ids = Object.keys(localStorage).filter(key => regex.test(key))
+            console.log('ids', ids)
+            ids.forEach(id => {
+                if (document.getElementById(id)) {
+                    document.getElementById(id).checked = localStorage.getItem(id) === "true"
+                }
+            })
+        }
+    </script>
     <script type="text/template" id="section-template">
       {{#each data as |section|}}
           <div>
               <p>{{section.title}} ({{section.items.length}})</p>
               <ul style="list-style:none; padding: 0">
                   {{#each section.items as |item|}}
-                  <li class="question-link" onclick="handleQuestionClick({{section.id}}, {{item.id}})">{{add @index 1}} {{item.title}}</li>
+                  <li class="question-link" ><input type="checkbox" id="completed-{{section.id}}-{{item.id}}" onclick="handleCheck({{section.id}}, {{item.id}})" /> {{add @index 1}} <span onclick="handleQuestionClick({{section.id}}, {{item.id}})">{{item.title}}</span></li>
                   {{/each}}
               </ul>
           </div>
@@ -355,6 +375,7 @@
             setTimeout(updatePlaygrounds, 100);
             setTimeout(renderMath, 100, '.math');
             setTimeout(fixRelativeImagePaths, 100);
+            setTimeout(loadCompletedItems, 100);
         }
         function addParams(params) {
             const location = window.location;
