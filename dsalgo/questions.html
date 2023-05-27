@@ -375,7 +375,6 @@
             setTimeout(updatePlaygrounds, 100);
             setTimeout(renderMath, 100, '.math');
             setTimeout(fixRelativeImagePaths, 100);
-            setTimeout(loadCompletedItems, 100);
         }
         function addParams(params) {
             const location = window.location;
@@ -460,6 +459,8 @@
                 get("#content").get("#sidebar").innerHTML = Handlebars.compile(
                     get("#section-template").innerHTML
                 )({ data });
+                
+                setTimeout(loadCompletedItems, 100);
             }
         }
 
