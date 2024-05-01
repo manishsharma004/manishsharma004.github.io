@@ -19,6 +19,7 @@
             max-width: 100%;
         }
         .question-link {
+            position: relative;
             cursor: pointer;
             margin: 3px 10px;
             border: 1px solid #999;
@@ -28,6 +29,17 @@
         .question-link.question-completed {
             background-color: var(--completed-color);
             border-color: var(--completed-border-color);
+        }
+        .question-link.current-question::before {
+            position: absolute;
+            content: " ";
+            border:1px solid blue;
+            width: 0.75rem;
+            height: 0.75rem;
+            top: calc(50% - 4px);
+            left: calc(-1rem - 4px);
+            border-width: 0 3px 3px 0;
+            transform: rotate(-45deg);
         }
 
         #sidebar {
@@ -189,6 +201,13 @@
         }
     </script>
     <script>
+        function markCurrentQuestion(sectionId, questionId) {
+            if (get(`#question-link-${sectionId}-${questionId}`)?.classList) {
+                get(`#question-link-${sectionId}-${questionId}`).classList.add('current-question')
+            }
+        }
+    </script>
+    <script>
         function sanitize(html) {
             return [transform, replaceIframeWithSrc, replaceRelativePaths].reduce(
                 (html, fn) => {
@@ -229,7 +248,6 @@
                 return g
             }, {})
 
-            console.log('sectionGroups', sectionGroups)
             Object.keys(sectionGroups).forEach(sectionId => {
                 const completedCount = sectionGroups[sectionId]
                 const totalCount = get(`#section-${sectionId} .total-count`).innerText
@@ -248,7 +266,7 @@
               <p>{{section.title}} (<span class="completed-count"></span><span class="total-count">{{section.items.length}}</span>)</p>
               <ul style="list-style:none; padding: 0">
                   {{#each section.items as |item|}}
-                  <li class="question-link" ><input type="checkbox" id="completed-{{section.id}}-{{item.id}}" onclick="handleCheck({{section.id}}, {{item.id}})" /> {{add @index 1}} <span onclick="handleQuestionClick({{section.id}}, {{item.id}})">{{item.title}}</span></li>
+                  <li class="question-link" id="question-link-{{section.id}}-{{item.id}}" ><input type="checkbox" id="completed-{{section.id}}-{{item.id}}" onclick="handleCheck({{section.id}}, {{item.id}})" /> {{add @index 1}} <span onclick="handleQuestionClick({{section.id}}, {{item.id}})">{{item.title}}</span></li>
                   {{/each}}
               </ul>
           </div>
@@ -505,6 +523,7 @@
                 )({ data });
                 
                 setTimeout(loadCompletedItems, 100);
+                setTimeout(() => markCurrentQuestion(sectionId, questionId), 100);
             }
         }
 
