@@ -11,14 +11,23 @@
     <link rel="stylesheet" href="node_modules/codemirror/lib/codemirror.css">
     <link rel="stylesheet" href="node_modules/codemirror/theme/ambiance.css">
     <style>
+        :root {
+            --completed-color: rgba(115, 201, 17, 0.63);
+            --completed-border-color: #333;
+        }
         img {
             max-width: 100%;
         }
         .question-link {
             cursor: pointer;
             margin: 3px 10px;
-            border: 1px solid #ccc;
+            border: 1px solid #999;
+            border-radius: 0.5rem;
             padding: 1px 5px;
+        }
+        .question-link.question-completed {
+            background-color: var(--completed-color);
+            border-color: var(--completed-border-color);
         }
 
         #sidebar {
@@ -29,7 +38,16 @@
             float: left;
             height: 100%;
             overflow: auto;
-            padding: 1rem 0.5rem;
+        }
+
+        .nav-question-section {
+            padding: 0.5rem;
+        }
+        .nav-question-section.completed {
+            background: var(--completed-color);
+        }
+        .nav-question-section.completed .question-link {
+            border-color: var(--completed-border-color);
         }
 
         #question {
@@ -197,9 +215,11 @@
             const regex = sectionId ? RegExp(`completed-${sectionId}-\\d+`) : /completed-\d+-\d+/
             const ids = Object.keys(localStorage).filter(key => regex.test(key) && localStorage.getItem(key) === 'true')
             console.log('ids', ids)
+            getAll(`${sectionId ? `#section-${sectionId} ` : ''}.question-link.question-completed`).forEach(node => node.classList.remove('question-completed'))
             ids.forEach(id => {
                 if (document.getElementById(id)) {
                     document.getElementById(id).checked = localStorage.getItem(id) === "true"
+                    document.getElementById(id).closest('.question-link').classList.add('question-completed')
                 }
             })
 
@@ -214,13 +234,17 @@
                 const completedCount = sectionGroups[sectionId]
                 const totalCount = get(`#section-${sectionId} .total-count`).innerText
                 get(`#section-${sectionId} .completed-count`).innerHTML = `${completedCount}/`
-                get(`#section-${sectionId} .completed-count`).parentElement.style.background = completedCount == totalCount ? '#6d5' : 'none'
+                if (completedCount == totalCount) {
+                    get(`#section-${sectionId} .completed-count`).closest('.nav-question-section').classList.add('completed')
+                } else {
+                    get(`#section-${sectionId} .completed-count`).closest('.nav-question-section').classList.remove('completed')
+                }
             })
         }
     </script>
     <script type="text/template" id="section-template">
       {{#each data as |section|}}
-          <div id="section-{{section.id}}">
+          <div id="section-{{section.id}}" class="nav-question-section">
               <p>{{section.title}} (<span class="completed-count"></span><span class="total-count">{{section.items.length}}</span>)</p>
               <ul style="list-style:none; padding: 0">
                   {{#each section.items as |item|}}
@@ -262,6 +286,9 @@
          */
         function get(selector) {
             return document.querySelector(selector);
+        }
+        function getAll(selector) {
+            return document.querySelectorAll(selector);
         }
 
         /**
