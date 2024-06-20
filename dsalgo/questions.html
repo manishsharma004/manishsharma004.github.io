@@ -254,13 +254,16 @@
             }, {})
 
             Object.keys(sectionGroups).forEach(sectionId => {
-                const completedCount = sectionGroups[sectionId]
-                const totalCount = get(`#section-${sectionId} .total-count`).innerText
-                get(`#section-${sectionId} .completed-count`).innerHTML = `${completedCount}/`
-                if (completedCount == totalCount) {
-                    get(`#section-${sectionId} .completed-count`).closest('.nav-question-section').classList.add('completed')
-                } else {
-                    get(`#section-${sectionId} .completed-count`).closest('.nav-question-section').classList.remove('completed')
+                const section = get(`#section-${sectionId}`)
+                if (section) {
+                    const completedCount = sectionGroups[sectionId]
+                    const totalCount = section.querySelector(`.total-count`).innerText
+                    section.querySelector(`.completed-count`).innerHTML = `${completedCount}/`
+                    if (completedCount == totalCount) {
+                        section.querySelector(`.completed-count`).closest('.nav-question-section').classList.add('completed')
+                    } else {
+                        section.querySelector(`.completed-count`).closest('.nav-question-section').classList.remove('completed')
+                    }
                 }
             })
         }
