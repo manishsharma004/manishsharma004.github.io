@@ -425,7 +425,7 @@
 
         function updateQuestion(question) {
             if (question.questionData) {
-                question.questionData.url = `https://www.leetcode.com${question.questionData.submitUrl.replace(
+                question.questionData.url = `https://www.leetcode.com${question.questionData.submitUrl?.replace(
                     "submit/",
                     ""
                 )}`;
