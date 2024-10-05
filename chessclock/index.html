@@ -1,46 +1,81 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" href="./chess-clock-favicon.svg" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        
-		<link href="./_app/immutable/assets/2.DmY7sloc.css" rel="stylesheet">
-		<link rel="modulepreload" href="./_app/immutable/entry/start.DhwpLIGG.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/entry.D3aPhtw-.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.DHKgWpgq.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/app.RpAdfezX.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/index.vMr7mszy.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/0.6Wt1NKzU.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/2.gE93tITf.js">
-    </head>
-    <body data-sveltekit-preload-data="hover">
-        <div style="display: contents">  <div class="container svelte-pu3rke"><div class="buttons svelte-pu3rke"><button class="button button-white  svelte-pu3rke" disabled>10m:0.0s</button> <button class="button button-black  svelte-pu3rke">10m:0.0s</button></div> <div class="actions svelte-pu3rke"><button class="button reset-button svelte-pu3rke" disabled>
-                ►</button> <button class="button reset-button svelte-pu3rke" disabled>↺</button></div> </div> 
-			
-			<script>
-				{
-					__sveltekit_2dsbeh = {
-						base: new URL(".", location).pathname.slice(0, -1)
-					};
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="./chess-clock-favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-					const element = document.currentScript.parentElement;
+    <link
+      href="/chessclock/app/immutable/assets/2.DmY7sloc.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="modulepreload"
+      href="/chessclock/app/immutable/entry/start.DhwpLIGG.js"
+    />
+    <link
+      rel="modulepreload"
+      href="/chessclock/app/immutable/chunks/entry.D3aPhtw-.js"
+    />
+    <link
+      rel="modulepreload"
+      href="/chessclock/app/immutable/chunks/scheduler.DHKgWpgq.js"
+    />
+    <link
+      rel="modulepreload"
+      href="/chessclock/app/immutable/entry/app.RpAdfezX.js"
+    />
+    <link
+      rel="modulepreload"
+      href="/chessclock/app/immutable/chunks/index.vMr7mszy.js"
+    />
+    <link
+      rel="modulepreload"
+      href="/chessclock/app/immutable/nodes/0.6Wt1NKzU.js"
+    />
+    <link
+      rel="modulepreload"
+      href="/chessclock/app/immutable/nodes/2.gE93tITf.js"
+    />
+  </head>
+  <body data-sveltekit-preload-data="hover">
+    <div style="display: contents">
+      <div class="container svelte-pu3rke">
+        <div class="buttons svelte-pu3rke">
+          <button class="button button-white svelte-pu3rke" disabled>
+            10m:0.0s
+          </button>
+          <button class="button button-black svelte-pu3rke">10m:0.0s</button>
+        </div>
+        <div class="actions svelte-pu3rke">
+          <button class="button reset-button svelte-pu3rke" disabled>►</button>
+          <button class="button reset-button svelte-pu3rke" disabled>↺</button>
+        </div>
+      </div>
 
-					const data = [null,null];
+      <script>
+        {
+          __sveltekit_2dsbeh = {
+            base: new URL(".", location).pathname.slice(0, -1),
+          };
 
-					Promise.all([
-						import("./_app/immutable/entry/start.DhwpLIGG.js"),
-						import("./_app/immutable/entry/app.RpAdfezX.js")
-					]).then(([kit, app]) => {
-						kit.start(app, element, {
-							node_ids: [0, 2],
-							data,
-							form: null,
-							error: null
-						});
-					});
-				}
-			</script>
-		</div>
-    </body>
+          const element = document.currentScript.parentElement;
+
+          const data = [null, null];
+
+          Promise.all([
+            import("/chessclock/app/immutable/entry/start.DhwpLIGG.js"),
+            import("/chessclock/app/immutable/entry/app.RpAdfezX.js"),
+          ]).then(([kit, app]) => {
+            kit.start(app, element, {
+              node_ids: [0, 2],
+              data,
+              form: null,
+              error: null,
+            });
+          });
+        }
+      </script>
+    </div>
+  </body>
 </html>
