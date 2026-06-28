@@ -1,36 +1,1198 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charSet="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="next-head-count" content="2" />
-    <link rel="preload" href="/_next/static/css/120f2e2270820d49a21f.css" as="style" />
-    <link rel="stylesheet" href="/_next/static/css/120f2e2270820d49a21f.css" data-n-g="" /><noscript
-        data-n-css=""></noscript>
-    <script defer="" nomodule="" src="/_next/static/chunks/polyfills-a54b4f32bdc1ef890ddd.js"></script>
-    <script src="/_next/static/chunks/webpack-61095c13c5984b221292.js" defer=""></script>
-    <script src="/_next/static/chunks/framework-64eb7138163e04c228e4.js" defer=""></script>
-    <script src="/_next/static/chunks/main-4777350f2a9ff73ea2b0.js" defer=""></script>
-    <script src="/_next/static/chunks/pages/_app-02523805f1f9350d0682.js" defer=""></script>
-    <script src="/_next/static/chunks/530-015c2b2a114ab676e48a.js" defer=""></script>
-    <script src="/_next/static/chunks/pages/index-08fe15020cf36d538e23.js" defer=""></script>
-    <script src="/_next/static/QgowYQPCWo17myzu53sSX/_buildManifest.js" defer=""></script>
-    <script src="/_next/static/QgowYQPCWo17myzu53sSX/_ssgManifest.js" defer=""></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Manish Sharma — Senior Software Engineer</title>
+    <meta name="description"
+        content="Manish Sharma — Senior Software Engineer with 9+ years of experience designing, building and scaling customer-focused products across frontend, backend and distributed systems." />
+    <meta name="author" content="Manish Sharma" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Manish Sharma — Senior Software Engineer" />
+    <meta property="og:description"
+        content="Senior Software Engineer with 9+ years of experience building customer-focused products across frontend, backend and distributed systems." />
+    <meta property="og:type" content="website" />
+
+    <link rel="icon" href="favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        :root {
+            --bg: #ffffff;
+            --bg-alt: #f6f8fb;
+            --surface: #ffffff;
+            --text: #0f172a;
+            --muted: #475569;
+            --faint: #64748b;
+            --border: #e6eaf0;
+            --accent: #2563eb;
+            --accent-dark: #1d4ed8;
+            --accent-soft: #eff4ff;
+            --ink: #0b1220;
+            --radius: 14px;
+            --shadow-sm: 0 1px 2px rgba(15, 23, 42, .06), 0 1px 3px rgba(15, 23, 42, .04);
+            --shadow-md: 0 10px 30px -12px rgba(15, 23, 42, .18);
+            --maxw: 1080px;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --font-serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font-sans);
+            font-size: 17px;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--accent-dark);
+        }
+
+        h1,
+        h2,
+        h3 {
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            color: var(--ink);
+            margin: 0;
+        }
+
+        p {
+            margin: 0 0 1rem;
+            color: var(--muted);
+        }
+
+        .wrap {
+            width: 100%;
+            max-width: var(--maxw);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 88px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .section-head {
+            margin-bottom: 44px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .section-head h2 {
+            font-size: clamp(28px, 4vw, 38px);
+        }
+
+        .section-head p {
+            max-width: 640px;
+            margin-top: 14px;
+            font-size: 1.05rem;
+        }
+
+        /* ---------- Nav ---------- */
+        header.nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(255, 255, 255, .82);
+            backdrop-filter: saturate(180%) blur(12px);
+            -webkit-backdrop-filter: saturate(180%) blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 66px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            color: var(--ink);
+            letter-spacing: -0.01em;
+        }
+
+        .brand .mark {
+            display: grid;
+            place-items: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--accent), #4f46e5);
+            color: #fff;
+            font-weight: 800;
+            font-size: 15px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--faint);
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--ink);
+        }
+
+        .nav-cta {
+            padding: 9px 18px;
+            border-radius: 9px;
+            background: var(--ink);
+            color: #fff !important;
+            font-weight: 600;
+        }
+
+        .nav-cta:hover {
+            background: #1e293b;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            width: 42px;
+            height: 38px;
+            cursor: pointer;
+            color: var(--ink);
+        }
+
+        /* ---------- Hero ---------- */
+        .hero {
+            position: relative;
+            border-top: none;
+            padding: 96px 0 92px;
+            background:
+                radial-gradient(900px 400px at 85% -10%, rgba(37, 99, 235, .10), transparent 60%),
+                radial-gradient(700px 360px at 0% 0%, rgba(79, 70, 229, .08), transparent 55%),
+                var(--bg);
+            overflow: hidden;
+        }
+
+        .hero .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 7px 14px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: var(--surface);
+            font-size: 13.5px;
+            font-weight: 500;
+            color: var(--muted);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #22c55e;
+            box-shadow: 0 0 0 4px rgba(34, 197, 94, .16);
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 6.4vw, 64px);
+            margin: 22px 0 10px;
+        }
+
+        .hero .role {
+            font-size: clamp(18px, 2.4vw, 23px);
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: -0.01em;
+        }
+
+        .hero .lede {
+            max-width: 660px;
+            margin: 20px 0 0;
+            font-size: 1.16rem;
+            color: var(--muted);
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 34px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 13px 22px;
+            border-radius: 11px;
+            font-weight: 600;
+            font-size: 15.5px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: transform .12s ease, box-shadow .2s ease, background .2s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+            box-shadow: 0 8px 20px -8px rgba(37, 99, 235, .6);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-dark);
+            color: #fff;
+            transform: translateY(-1px);
+        }
+
+        .btn-ghost {
+            background: var(--surface);
+            color: var(--ink);
+            border-color: var(--border);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-ghost:hover {
+            color: var(--ink);
+            border-color: #cbd5e1;
+            transform: translateY(-1px);
+        }
+
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 26px;
+            margin-top: 40px;
+            padding-top: 28px;
+            border-top: 1px solid var(--border);
+        }
+
+        .stat .n {
+            font-size: 30px;
+            font-weight: 800;
+            color: var(--ink);
+            letter-spacing: -0.02em;
+        }
+
+        .stat .l {
+            font-size: 14px;
+            color: var(--faint);
+        }
+
+        /* ---------- About ---------- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        .about-grid p {
+            font-size: 1.08rem;
+        }
+
+        .highlight-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 14px;
+        }
+
+        .highlight-list li {
+            position: relative;
+            padding-left: 30px;
+            color: var(--muted);
+        }
+
+        .highlight-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 9px;
+            width: 16px;
+            height: 16px;
+            border-radius: 5px;
+            background: var(--accent-soft);
+            border: 1.5px solid var(--accent);
+        }
+
+        .info-card {
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 26px;
+        }
+
+        .info-card h3 {
+            font-size: 17px;
+            margin-bottom: 16px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 11px 0;
+            border-bottom: 1px dashed var(--border);
+            font-size: 15px;
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-row span:first-child {
+            color: var(--faint);
+        }
+
+        .info-row span:last-child {
+            color: var(--ink);
+            font-weight: 600;
+            text-align: right;
+        }
+
+        /* ---------- Experience ---------- */
+        .timeline {
+            position: relative;
+            display: grid;
+            gap: 22px;
+        }
+
+        .xp {
+            position: relative;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 26px 28px;
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease;
+        }
+
+        .xp:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+            border-color: #d7deea;
+        }
+
+        .xp-top {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 6px 20px;
+            align-items: baseline;
+        }
+
+        .xp-role {
+            font-size: 19px;
+            font-weight: 700;
+            color: var(--ink);
+        }
+
+        .xp-co {
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .xp-date {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--faint);
+            white-space: nowrap;
+        }
+
+        .xp ul {
+            margin: 16px 0 18px;
+            padding-left: 20px;
+            color: var(--muted);
+        }
+
+        .xp ul li {
+            margin-bottom: 7px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--muted);
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            padding: 4px 10px;
+        }
+
+        /* ---------- Skills ---------- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .skill-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px 26px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .skill-card h3 {
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+
+        /* ---------- Projects ---------- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .project {
+            display: flex;
+            flex-direction: column;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 26px;
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease;
+        }
+
+        .project:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+            border-color: #d7deea;
+        }
+
+        .project .picon {
+            display: grid;
+            place-items: center;
+            width: 46px;
+            height: 46px;
+            border-radius: 11px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            margin-bottom: 18px;
+        }
+
+        .project h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .project p {
+            font-size: 14.5px;
+            margin-bottom: 18px;
+            flex: 1;
+        }
+
+        .project .open {
+            font-weight: 600;
+            font-size: 14.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .project .open svg {
+            transition: transform .15s ease;
+        }
+
+        .project:hover .open svg {
+            transform: translateX(3px);
+        }
+
+        .subhead {
+            margin: 56px 0 24px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--faint);
+        }
+
+        /* ---------- Education ---------- */
+        .edu-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .edu {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 26px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .edu h3 {
+            font-size: 18px;
+            margin-bottom: 6px;
+        }
+
+        .edu .school {
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .edu .meta {
+            font-size: 14px;
+            color: var(--faint);
+            margin-top: 8px;
+        }
+
+        /* ---------- Contact ---------- */
+        #contact {
+            background:
+                radial-gradient(700px 300px at 80% 0%, rgba(37, 99, 235, .10), transparent 60%),
+                var(--ink);
+            color: #e2e8f0;
+            border-top: none;
+        }
+
+        #contact h2 {
+            color: #fff;
+            font-size: clamp(28px, 4vw, 40px);
+        }
+
+        #contact p {
+            color: #94a3b8;
+            max-width: 560px;
+        }
+
+        .contact-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 30px;
+        }
+
+        .contact-actions .btn-ghost {
+            background: rgba(255, 255, 255, .06);
+            border-color: rgba(255, 255, 255, .16);
+            color: #fff;
+        }
+
+        .contact-actions .btn-ghost:hover {
+            background: rgba(255, 255, 255, .12);
+            color: #fff;
+        }
+
+        /* ---------- Footer ---------- */
+        footer.site {
+            background: var(--ink);
+            color: #64748b;
+            padding: 26px 0;
+            border-top: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 14px;
+        }
+
+        .footer-inner a {
+            color: #cbd5e1;
+        }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 860px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 720px) {
+            body {
+                font-size: 16px;
+            }
+
+            section {
+                padding: 64px 0;
+            }
+
+            .nav-links {
+                position: fixed;
+                inset: 66px 0 auto 0;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                background: #fff;
+                border-bottom: 1px solid var(--border);
+                padding: 8px 24px 20px;
+                box-shadow: var(--shadow-md);
+                display: none;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 13px 0;
+                border-bottom: 1px solid var(--border);
+                font-size: 16px;
+            }
+
+            .nav-links .nav-cta {
+                margin-top: 12px;
+                text-align: center;
+                border-bottom: none;
+            }
+
+            .nav-toggle {
+                display: inline-grid;
+                place-items: center;
+            }
+
+            .skills-grid,
+            .projects-grid,
+            .edu-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div id="__next">
-        <ol class="sc-bdnxRM jvCTkj">
-            <li class="sc-gtsrHT gfuSqG"><a href="json/index.html">JSON</a></li>
-            <li class="sc-gtsrHT gfuSqG"><a href="mobile-preview/index.html">Mobile Preview</a></li>
-            <li><a href="dsalgo/questions.html">DS Algo</a></li>
-            <li><a href="understanding-deep-learning-jdprince/index.html">Understanding Deep Learning - Simon J.D. Prince</a></li>
-            <li><a href="chessclock/index.html">Chess Clock</a></li>
-        </ol>
-    </div>
-    <script id="__NEXT_DATA__"
-        type="application/json">{"props":{"pageProps":{}},"page":"/","query":{},"buildId":"QgowYQPCWo17myzu53sSX","nextExport":true,"autoExport":true,"isFallback":false,"scriptLoader":[]}</script>
+    <header class="nav">
+        <div class="wrap nav-inner">
+            <a class="brand" href="#top" aria-label="Manish Sharma — home">
+                <span class="mark">MS</span>
+                <span>Manish Sharma</span>
+            </a>
+            <nav class="nav-links" id="navLinks">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#education">Education</a>
+                <a class="nav-cta" href="#contact">Get in touch</a>
+            </nav>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round">
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <line x1="3" y1="12" x2="21" y2="12" />
+                    <line x1="3" y1="18" x2="21" y2="18" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main id="top">
+        <!-- HERO -->
+        <section class="hero">
+            <div class="wrap">
+                <span class="status"><span class="dot"></span> Senior Software Engineer · Bengaluru, India</span>
+                <h1>Manish Sharma</h1>
+                <div class="role">Senior Software Engineer</div>
+                <p class="lede">
+                    9+ years building customer-focused products across frontend, backend and distributed
+                    systems. Strong fundamentals in data structures, algorithms and system design, with a
+                    passion for writing clean, high-quality code.
+                </p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="#projects">
+                        View projects
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M13 6l6 6-6 6" />
+                        </svg>
+                    </a>
+                    <a class="btn btn-ghost" href="https://github.com/manishsharma004" target="_blank" rel="noopener">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path
+                                d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.16-.02-2.1-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 2.9-.39c.98 0 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.8 1.18 1.83 1.18 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14 0 1.55-.01 2.8-.01 3.18 0 .31.21.68.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z" />
+                        </svg>
+                        GitHub
+                    </a>
+                </div>
+                <div class="hero-meta">
+                    <div class="stat">
+                        <div class="n">9+</div>
+                        <div class="l">Years of experience</div>
+                    </div>
+                    <div class="stat">
+                        <div class="n">7</div>
+                        <div class="l">Companies & teams</div>
+                    </div>
+                    <div class="stat">
+                        <div class="n">Full-stack</div>
+                        <div class="l">Frontend · Backend · Infra</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about">
+            <div class="wrap">
+                <div class="section-head">
+                    <span class="eyebrow">About</span>
+                    <h2>Engineering products that people rely on.</h2>
+                </div>
+                <div class="about-grid">
+                    <div>
+                        <p>
+                            I'm a Senior Software Engineer with 9 years of experience across analysis, design,
+                            development, testing and deployment of customer-focused products. I enjoy turning
+                            ambiguous problems into well-architected systems and mentoring engineers to ship
+                            features with consistently high quality.
+                        </p>
+                        <p>
+                            My work spans modern frontend applications, scalable backend microservices, AI data
+                            pipelines and cloud-native infrastructure. I value clean code, thoughtful system
+                            design and continuous learning across new environments, teams and technologies.
+                        </p>
+                    </div>
+                    <div class="info-card">
+                        <h3>At a glance</h3>
+                        <div class="info-row"><span>Role</span><span>Senior Software Engineer</span></div>
+                        <div class="info-row"><span>Experience</span><span>9+ years</span></div>
+                        <div class="info-row"><span>Location</span><span>Bengaluru, India</span></div>
+                        <div class="info-row"><span>Focus</span><span>Full-stack · Systems</span></div>
+                        <div class="info-row"><span>GitHub</span><span><a href="https://github.com/manishsharma004"
+                                    target="_blank" rel="noopener">manishsharma004</a></span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section id="experience">
+            <div class="wrap">
+                <div class="section-head">
+                    <span class="eyebrow">Experience</span>
+                    <h2>Where I've worked</h2>
+                    <p>A track record of leading teams and delivering products across consumer platforms, AI and
+                        enterprise systems.</p>
+                </div>
+                <div class="timeline">
+                    <article class="xp">
+                        <div class="xp-top">
+                            <div class="xp-role">Frontend Engineer II · <span class="xp-co">Sequoia (Murren
+                                    Consulting)</span></div>
+                            <div class="xp-date">Jul 2024 — Present</div>
+                        </div>
+                        <ul>
+                            <li>Partner closely with the Product team to deliver features for CompOS products.</li>
+                            <li>Guide and mentor fellow developers to ship features with consistently great quality.</li>
+                        </ul>
+                        <div class="tags"><span class="tag">ReactJS</span><span class="tag">JavaScript</span></div>
+                    </article>
+
+                    <article class="xp">
+                        <div class="xp-top">
+                            <div class="xp-role">Senior Software Engineer · <span class="xp-co">SpotLYT (AIBAE
+                                    Tech.)</span></div>
+                            <div class="xp-date">Aug 2023 — Present</div>
+                        </div>
+                        <ul>
+                            <li>Led a team of talented engineers across frontend and backend.</li>
+                            <li>Designed and built core data pipelines for AI analysis — STT, sentiment analysis and user
+                                analytics.</li>
+                            <li>Led development of microservices and frontend applications end to end.</li>
+                        </ul>
+                        <div class="tags"><span class="tag">Python</span><span class="tag">Flask</span><span
+                                class="tag">FastAPI</span><span class="tag">NodeJS</span><span
+                                class="tag">NestJS</span><span class="tag">PostgreSQL</span><span
+                                class="tag">MongoDB</span><span class="tag">OpenAI GPT</span><span
+                                class="tag">RAG</span><span class="tag">ReactJS</span><span class="tag">NextJS</span>
+                        </div>
+                    </article>
+
+                    <article class="xp">
+                        <div class="xp-top">
+                            <div class="xp-role">Senior Software Engineer · <span class="xp-co">Embibe (Indiavidual
+                                    Learning)</span></div>
+                            <div class="xp-date">Aug 2020 — Aug 2023</div>
+                        </div>
+                        <ul>
+                            <li>Owned and led multiple features — video playing, user behavior tracking and onboarding —
+                                on Embibe's B2C consumer platform, Student Web.</li>
+                            <li>Integrated the Student Web application into MyJio's Education platform.</li>
+                            <li>Led development of a chatbot app enabling chat-like interaction for students to watch
+                                videos, practice and clear doubts.</li>
+                        </ul>
+                        <div class="tags"><span class="tag">ReactJS</span><span class="tag">NextJS</span><span
+                                class="tag">Android</span></div>
+                    </article>
+
+                    <article class="xp">
+                        <div class="xp-top">
+                            <div class="xp-role">Senior Software Engineer · <span class="xp-co">AutoGrid India</span>
+                            </div>
+                            <div class="xp-date">Dec 2018 — Apr 2020</div>
+                        </div>
+                        <ul>
+                            <li>Led the effort to split a monolithic legacy Ruby on Rails application into microservices
+                                and Angular SPAs, improving UX and developer velocity.</li>
+                            <li>Drove the migration from instance-based deployments to Kubernetes clusters —
+                                containerization, auto-scaling and failure recovery.</li>
+                            <li>Integrated Tableau into the DROMS project, eliminating duplicated effort building charts
+                                into internal dashboards.</li>
+                        </ul>
+                        <div class="tags"><span class="tag">Angular</span><span class="tag">Ruby on Rails</span><span
+                                class="tag">Docker</span><span class="tag">Kubernetes</span></div>
+                    </article>
+
+                    <article class="xp">
+                        <div class="xp-top">
+                            <div class="xp-role">Senior Software Consultant · <span class="xp-co">Charcoaleats</span>
+                            </div>
+                            <div class="xp-date">Jun 2018 — Dec 2018</div>
+                        </div>
+                        <ul>
+                            <li>Worked on GST invoice integration and upgraded WebSocket infrastructure for POS
+                                applications.</li>
+                            <li>Developed a new POS application using NodeJS, ReactJS and React Native.</li>
+                        </ul>
+                        <div class="tags"><span class="tag">React</span><span class="tag">Angular</span><span
+                                class="tag">NodeJS</span><span class="tag">React Native</span><span
+                                class="tag">Android</span></div>
+                    </article>
+
+                    <article class="xp">
+                        <div class="xp-top">
+                            <div class="xp-role">Software Design Engineer (L1 & L2) · <span class="xp-co">Sokrati
+                                    Technologies</span></div>
+                            <div class="xp-date">Jun 2015 — Jun 2018</div>
+                        </div>
+                        <ul>
+                            <li>Built automated marketing campaign launchers for Google and Facebook.</li>
+                            <li>Developed microservices powering the Launch UI and automated campaign launchers.</li>
+                        </ul>
+                        <div class="tags"><span class="tag">Java</span><span class="tag">Spring</span><span
+                                class="tag">Hibernate</span><span class="tag">MySQL</span><span
+                                class="tag">MongoDB</span><span class="tag">Kafka</span><span
+                                class="tag">ReactJS</span></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills">
+            <div class="wrap">
+                <div class="section-head">
+                    <span class="eyebrow">Skills</span>
+                    <h2>Tools & technologies</h2>
+                    <p>A broad, full-stack toolkit refined across diverse environments and team cultures.</p>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3>Languages</h3>
+                        <div class="tags">
+                            <span class="tag">JavaScript</span><span class="tag">TypeScript</span><span
+                                class="tag">Java (6/7/11)</span><span class="tag">Python</span><span
+                                class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">Ruby</span><span
+                                class="tag">PHP</span><span class="tag">C++</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Databases & Data</h3>
+                        <div class="tags">
+                            <span class="tag">MySQL</span><span class="tag">PostgreSQL</span><span
+                                class="tag">MongoDB</span><span class="tag">Kafka</span><span
+                                class="tag">ElasticSearch</span><span class="tag">Redis</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Frameworks & Platforms</h3>
+                        <div class="tags">
+                            <span class="tag">React</span><span class="tag">Next.js</span><span class="tag">React
+                                Native</span><span class="tag">NodeJS</span><span class="tag">NestJS</span><span
+                                class="tag">Spring / Spring Boot</span><span class="tag">Hibernate</span><span
+                                class="tag">FastAPI</span><span class="tag">Flask</span><span class="tag">Angular
+                                2/6</span><span class="tag">Ruby on Rails</span><span class="tag">Kubernetes</span><span
+                                class="tag">Prisma</span><span class="tag">GraphQL</span><span
+                                class="tag">Nginx</span><span class="tag">Socket.IO</span><span
+                                class="tag">Bootstrap</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Tools</h3>
+                        <div class="tags">
+                            <span class="tag">IntelliJ</span><span class="tag">Eclipse</span><span
+                                class="tag">VSCode</span><span class="tag">kubectl</span><span
+                                class="tag">Kibana</span><span class="tag">Postman</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects">
+            <div class="wrap">
+                <div class="section-head">
+                    <span class="eyebrow">Projects</span>
+                    <h2>Things I've built</h2>
+                    <p>A collection of tools, experiments and references — explore them live below.</p>
+                </div>
+
+                <div class="projects-grid">
+                    <a class="project" href="json/index.html">
+                        <span class="picon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5a2 2 0 0 0 2 2h1" />
+                                <path d="M16 3h1a2 2 0 0 1 2 2v5a2 2 0 0 0 2 2 2 2 0 0 0-2 2v5a2 2 0 0 1-2 2h-1" />
+                            </svg>
+                        </span>
+                        <h3>JSON Validator</h3>
+                        <p>A fast, web-based validator and reformatter for JSON — lint, format and clean up your
+                            data-interchange payloads.</p>
+                        <span class="open">Open project
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14M13 6l6 6-6 6" />
+                            </svg></span>
+                    </a>
+
+                    <a class="project" href="mobile-preview/index.html">
+                        <span class="picon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="5" y="2" width="14" height="20" rx="2" />
+                                <line x1="12" y1="18" x2="12" y2="18" />
+                            </svg>
+                        </span>
+                        <h3>Mobile Preview</h3>
+                        <p>An in-browser editor with a live device viewport to write markup and preview responsive
+                            layouts on a phone-sized frame.</p>
+                        <span class="open">Open project
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14M13 6l6 6-6 6" />
+                            </svg></span>
+                    </a>
+
+                    <a class="project" href="dsalgo/questions.html">
+                        <span class="picon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6" />
+                                <polyline points="8 6 2 12 8 18" />
+                            </svg>
+                        </span>
+                        <h3>DS &amp; Algo Questions</h3>
+                        <p>A searchable browser of data-structures &amp; algorithms interview questions by company, with
+                            an in-page code editor.</p>
+                        <span class="open">Open project
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14M13 6l6 6-6 6" />
+                            </svg></span>
+                    </a>
+
+                    <a class="project" href="understanding-deep-learning-jdprince/index.html">
+                        <span class="picon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                            </svg>
+                        </span>
+                        <h3>Understanding Deep Learning</h3>
+                        <p>A structured reference and table of contents for Simon J.D. Prince's book
+                            <em>Understanding Deep Learning</em>.
+                        </p>
+                        <span class="open">Open project
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14M13 6l6 6-6 6" />
+                            </svg></span>
+                    </a>
+
+                    <a class="project" href="chessclock/index.html">
+                        <span class="picon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="13" r="8" />
+                                <path d="M12 9v4l2 2" />
+                                <path d="M9 2h6" />
+                            </svg>
+                        </span>
+                        <h3>Chess Clock</h3>
+                        <p>A clean, interactive chess clock for timing games — tap to switch turns and watch each
+                            player's time count down.</p>
+                        <span class="open">Open project
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14M13 6l6 6-6 6" />
+                            </svg></span>
+                    </a>
+                </div>
+
+                <h3 class="subhead">Other projects</h3>
+                <div class="projects-grid">
+                    <a class="project" href="https://topledger.xyz/" target="_blank" rel="noopener">
+                        <span class="picon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 3v18h18" />
+                                <path d="M7 14l4-4 3 3 5-6" />
+                            </svg>
+                        </span>
+                        <h3>Top Ledger</h3>
+                        <p>On-chain data and analytics platform surfacing actionable insights for the Solana ecosystem.
+                        </p>
+                        <span class="open">Visit site
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M7 17L17 7M7 7h10v10" />
+                            </svg></span>
+                    </a>
+
+                    <a class="project" href="https://analytics.topledger.xyz/" target="_blank" rel="noopener">
+                        <span class="picon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="18" rx="2" />
+                                <path d="M7 15l3-3 2 2 5-5" />
+                            </svg>
+                        </span>
+                        <h3>Top Ledger Analytics</h3>
+                        <p>The analytics dashboards behind Top Ledger — interactive charts and queries over on-chain
+                            datasets.</p>
+                        <span class="open">Visit site
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M7 17L17 7M7 7h10v10" />
+                            </svg></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section id="education">
+            <div class="wrap">
+                <div class="section-head">
+                    <span class="eyebrow">Education</span>
+                    <h2>Academic background</h2>
+                </div>
+                <div class="edu-grid">
+                    <div class="edu">
+                        <h3>Bachelor of Technology — Computer Science &amp; Engineering</h3>
+                        <div class="school">IIT (ISM) Dhanbad</div>
+                        <div class="meta">Jul 2011 — May 2015</div>
+                    </div>
+                    <div class="edu">
+                        <h3>Senior Secondary (CBSE)</h3>
+                        <div class="school">Holy Convent School, Delhi</div>
+                        <div class="meta">2009 — 2010 · Graduated with 87%</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact">
+            <div class="wrap">
+                <span class="eyebrow">Contact</span>
+                <h2>Let's build something great.</h2>
+                <p>I'm always open to discussing impactful products, engineering challenges and new opportunities.
+                    The best place to reach me is GitHub.</p>
+                <div class="contact-actions">
+                    <a class="btn btn-primary" href="https://github.com/manishsharma004" target="_blank"
+                        rel="noopener">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path
+                                d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.16-.02-2.1-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 2.9-.39c.98 0 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.8 1.18 1.83 1.18 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14 0 1.55-.01 2.8-.01 3.18 0 .31.21.68.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z" />
+                        </svg>
+                        github.com/manishsharma004
+                    </a>
+                    <a class="btn btn-ghost" href="#projects">Browse projects</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site">
+        <div class="wrap footer-inner">
+            <div>© <span id="year"></span> Manish Sharma · Bengaluru, India</div>
+            <div><a href="https://github.com/manishsharma004" target="_blank" rel="noopener">GitHub</a></div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            var toggle = document.getElementById('navToggle');
+            var links = document.getElementById('navLinks');
+            toggle.addEventListener('click', function () {
+                var open = links.classList.toggle('open');
+                toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            });
+            links.addEventListener('click', function (e) {
+                if (e.target.tagName === 'A') links.classList.remove('open');
+            });
+            document.getElementById('year').textContent = new Date().getFullYear();
+        })();
+    </script>
 </body>
 
 </html>
