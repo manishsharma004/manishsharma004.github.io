@@ -1,0 +1,15 @@
+(function () {
+    var toggle = document.getElementById('navToggle');
+    var links = document.getElementById('navLinks');
+    if (toggle && links) {
+        toggle.addEventListener('click', function () {
+            var open = links.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        links.addEventListener('click', function (e) {
+            if (e.target.tagName === 'A') links.classList.remove('open');
+        });
+    }
+    var year = document.getElementById('year');
+    if (year) year.textContent = new Date().getFullYear();
+})();

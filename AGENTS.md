@@ -3,9 +3,10 @@
 ## Cursor Cloud specific instructions
 
 ### What this repo is
-This is a **fully static website** (a GitHub Pages / Vercel style deploy). It contains a
-pre-built Next.js static export (`index.html`, `_next/`, `404.html`) plus several
-self-contained static mini-apps served from subfolders:
+This is a **fully static website** (a GitHub Pages / Vercel style deploy). The portfolio
+is a multi-page static site at the repo root (`index.html`, `about.html`, `experience.html`,
+`skills.html`, `education.html`, `contact.html`, plus shared `css/site.css` and `js/site.js`).
+Several self-contained static mini-apps are also served from subfolders:
 
 - `json/` – JSON viewer
 - `mobile-preview/` – mobile preview tool
@@ -23,10 +24,10 @@ Serve the repository root over static HTTP and open it in a browser:
 python3 -m http.server 8000   # run from the repo root (/workspace)
 ```
 
-Then visit `http://localhost:8000/index.html`. Sub-apps are reachable at e.g.
-`http://localhost:8000/chessclock/index.html` and
-`http://localhost:8000/dsalgo/questions.html`. Serve from the **root** because
-`index.html` references `_next/` assets via absolute paths (`/_next/...`).
+Then visit `http://localhost:8000/index.html`. Portfolio pages are at e.g.
+`http://localhost:8000/about.html` and `http://localhost:8000/experience.html`.
+Sub-apps are reachable at e.g. `http://localhost:8000/chessclock/index.html` and
+`http://localhost:8000/dsalgo/questions.html`.
 
 ### Dependencies
 The only npm dependency is `codemirror`, used by `dsalgo/questions.html` via a relative
@@ -42,6 +43,5 @@ path (`dsalgo/node_modules/codemirror/...`). It is already committed under
   at the repo root, so there is no runnable lint command.
 
 ### Gotcha
-The committed root `index.html` is a static Next.js export whose nav list relies on
-client-side hydration; some links may not render fully on the bare page. Navigate to
-sub-apps directly by URL if a homepage link is missing.
+`404.html` is still a legacy Next.js export and does not match the portfolio design.
+The `_next/` folder is only used by that 404 page.
