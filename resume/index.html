@@ -6,14 +6,23 @@
     <title>Manish Sharma — Résumé</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap"
+        rel="stylesheet" />
     <style>
         :root {
-            --ink: #0f172a;
+            --bg: #ffffff;
+            --bg-alt: #f6f8fb;
+            --surface: #ffffff;
+            --text: #0f172a;
             --muted: #475569;
             --faint: #64748b;
-            --accent: #1d4ed8;
-            --rule: #e2e8f0;
+            --border: #e6eaf0;
+            --accent: #2563eb;
+            --accent-dark: #1d4ed8;
+            --accent-soft: #eff4ff;
+            --ink: #0b1220;
+            --radius: 12px;
         }
 
         * {
@@ -23,272 +32,535 @@
         body {
             margin: 0;
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            font-size: 10.5pt;
+            font-size: 9.5pt;
             line-height: 1.45;
-            color: var(--ink);
-            background: #fff;
+            color: var(--text);
+            background: var(--bg);
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
         }
 
-        .page {
-            max-width: 780px;
-            margin: 0 auto;
-            padding: 0;
+        .hero {
+            padding: 22px 24px 20px;
+            background:
+                radial-gradient(520px 220px at 88% -20%, rgba(37, 99, 235, .14), transparent 60%),
+                radial-gradient(420px 200px at 0% 0%, rgba(79, 70, 229, .10), transparent 55%),
+                var(--bg);
+            border-bottom: 1px solid var(--border);
         }
 
-        header {
-            border-bottom: 2px solid var(--ink);
-            padding-bottom: 14px;
-            margin-bottom: 18px;
+        .hero-top {
+            display: table;
+            width: 100%;
+        }
+
+        .hero-brand {
+            display: table-cell;
+            vertical-align: middle;
+            width: 58px;
+        }
+
+        .mark {
+            display: inline-block;
+            width: 46px;
+            height: 46px;
+            line-height: 46px;
+            text-align: center;
+            border-radius: 11px;
+            background: linear-gradient(135deg, var(--accent), #4f46e5);
+            color: #fff;
+            font-weight: 800;
+            font-size: 14px;
+        }
+
+        .hero-text {
+            display: table-cell;
+            vertical-align: middle;
+            padding-left: 14px;
         }
 
         h1 {
-            font-size: 24pt;
-            font-weight: 700;
+            font-size: 22pt;
+            font-weight: 800;
             letter-spacing: -0.03em;
-            margin: 0 0 4px;
-        }
-
-        .headline {
-            font-size: 12pt;
-            font-weight: 600;
-            color: var(--accent);
-            margin-bottom: 8px;
-        }
-
-        .meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px 18px;
-            font-size: 9.5pt;
-            color: var(--muted);
-        }
-
-        .meta strong {
             color: var(--ink);
-            font-weight: 600;
-        }
-
-        h2 {
-            font-size: 9pt;
-            font-weight: 700;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: var(--accent);
-            border-bottom: 1px solid var(--rule);
-            padding-bottom: 4px;
-            margin: 18px 0 10px;
-        }
-
-        .summary {
-            color: var(--muted);
-            margin: 0;
+            margin: 0 0 2px;
         }
 
         .role {
-            margin-bottom: 12px;
-            page-break-inside: avoid;
+            font-size: 11.5pt;
+            font-weight: 600;
+            color: var(--accent);
+            margin: 0;
         }
 
-        .role-head {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            gap: 12px;
-            margin-bottom: 3px;
+        .status {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 5px 12px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: var(--surface);
+            font-size: 8.5pt;
+            font-weight: 500;
+            color: var(--muted);
         }
 
-        .role-title {
+        .dot {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #22c55e;
+            margin-right: 6px;
+            vertical-align: middle;
+        }
+
+        .chips {
+            margin-top: 10px;
+        }
+
+        .chip {
+            display: inline-block;
+            font-size: 7.5pt;
+            font-weight: 600;
+            color: var(--muted);
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 4px 10px;
+            margin: 0 5px 5px 0;
+        }
+
+        .chip-ai {
+            color: #4338ca;
+            background: linear-gradient(135deg, #eef2ff, #f5f3ff);
+            border-color: #c7d2fe;
+        }
+
+        .hero-meta {
+            margin-top: 14px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border);
+            display: table;
+            width: 100%;
+        }
+
+        .stat {
+            display: table-cell;
+            padding-right: 18px;
+        }
+
+        .stat .n {
+            font-size: 15pt;
+            font-weight: 800;
+            color: var(--ink);
+            letter-spacing: -0.02em;
+        }
+
+        .stat .l {
+            font-size: 7.5pt;
+            color: var(--faint);
+        }
+
+        .ai-band {
+            margin: 14px 16px 0;
+            padding: 2px;
+            border-radius: var(--radius);
+            background: linear-gradient(135deg, #6366f1, #2563eb, #7c3aed);
+        }
+
+        .ai-inner {
+            border-radius: 10px;
+            padding: 12px 14px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+        }
+
+        .ai-label {
+            font-size: 7pt;
             font-weight: 700;
-            font-size: 10.5pt;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: #93c5fd;
+            margin-bottom: 4px;
         }
 
-        .role-co {
+        .ai-inner p {
+            margin: 0 0 8px;
+            font-size: 8.5pt;
+            color: #94a3b8;
+        }
+
+        .tag-glow {
+            display: inline-block;
+            font-size: 7pt;
+            font-weight: 600;
+            color: #e0e7ff;
+            background: rgba(99, 102, 241, .28);
+            border: 1px solid rgba(129, 140, 248, .45);
+            border-radius: 6px;
+            padding: 3px 8px;
+            margin: 0 4px 4px 0;
+        }
+
+        .layout {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+        }
+
+        .sidebar {
+            display: table-cell;
+            width: 31%;
+            vertical-align: top;
+            background: var(--ink);
+            color: #cbd5e1;
+            padding: 16px 14px;
+        }
+
+        .main {
+            display: table-cell;
+            vertical-align: top;
+            padding: 14px 16px 18px;
+            background: var(--bg);
+        }
+
+        .sidebar h2,
+        .main h2 {
+            font-size: 7pt;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            margin: 0 0 8px;
+        }
+
+        .sidebar h2 {
+            color: #93c5fd;
+        }
+
+        .main h2 {
+            color: var(--accent);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 4px;
+            margin-bottom: 10px;
+        }
+
+        .sidebar-block {
+            margin-bottom: 14px;
+        }
+
+        .info-row {
+            font-size: 8pt;
+            padding: 5px 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, .12);
+        }
+
+        .info-row span {
+            display: block;
+            color: #94a3b8;
+            font-size: 7pt;
+        }
+
+        .info-row strong {
+            color: #f1f5f9;
+            font-weight: 600;
+        }
+
+        .pillar {
+            margin-bottom: 8px;
+            padding: 8px 9px 8px 11px;
+            border-radius: 9px;
+            background: rgba(255, 255, 255, .05);
+            border: 1px solid rgba(255, 255, 255, .10);
+            border-left: 4px solid var(--pillar-color);
+        }
+
+        .pillar-java { --pillar-color: #ea580c; }
+        .pillar-python { --pillar-color: #2563eb; }
+        .pillar-react { --pillar-color: #0891b2; }
+        .pillar-rn { --pillar-color: #7c3aed; }
+
+        .pillar h3 {
+            font-size: 8.5pt;
+            color: #fff;
+            margin: 0 0 2px;
+        }
+
+        .pillar p {
+            margin: 0;
+            font-size: 7pt;
+            color: #94a3b8;
+            line-height: 1.35;
+        }
+
+        .summary {
+            margin: 0 0 12px;
+            color: var(--muted);
+            font-size: 9pt;
+        }
+
+        .summary strong {
+            color: var(--ink);
+        }
+
+        .xp {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 10px 12px;
+            margin-bottom: 9px;
+            page-break-inside: avoid;
+            box-shadow: 0 1px 2px rgba(15, 23, 42, .06);
+        }
+
+        .xp-top {
+            display: table;
+            width: 100%;
+            margin-bottom: 4px;
+        }
+
+        .xp-role {
+            display: table-cell;
+            font-size: 9.5pt;
+            font-weight: 700;
+            color: var(--ink);
+        }
+
+        .xp-co {
             color: var(--accent);
             font-weight: 600;
         }
 
-        .role-date {
-            font-size: 9pt;
-            color: var(--faint);
+        .xp-date {
+            display: table-cell;
+            text-align: right;
+            font-size: 7.5pt;
             font-weight: 600;
+            color: var(--faint);
             white-space: nowrap;
         }
 
         ul {
             margin: 4px 0 6px;
-            padding-left: 16px;
+            padding-left: 15px;
             color: var(--muted);
+            font-size: 8.5pt;
         }
 
         li {
             margin-bottom: 2px;
         }
 
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-        }
-
         .tag {
-            font-size: 8pt;
+            display: inline-block;
+            font-size: 7pt;
             font-weight: 600;
-            color: var(--faint);
-            background: #f8fafc;
-            border: 1px solid var(--rule);
-            border-radius: 4px;
+            color: var(--muted);
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            border-radius: 6px;
             padding: 2px 7px;
+            margin: 0 4px 4px 0;
         }
 
-        .skills-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px 24px;
-            color: var(--muted);
-            font-size: 9.5pt;
-        }
-
-        .skills-grid strong {
-            color: var(--ink);
-            display: block;
+        .edu-card {
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 10px 12px;
             font-size: 8.5pt;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 2px;
-        }
-
-        .edu {
             color: var(--muted);
         }
 
-        .edu strong {
+        .edu-card strong {
             color: var(--ink);
         }
 
-        @media print {
-            body {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
+        .school {
+            color: var(--accent);
+            font-weight: 600;
         }
     </style>
 </head>
 
 <body>
-    <div class="page">
-        <header>
-            <h1>Manish Sharma</h1>
-            <div class="headline">Senior Software Engineer</div>
-            <div class="meta">
-                <span><strong>Location:</strong> Bengaluru, India</span>
-                <span><strong>GitHub:</strong> github.com/manishsharma004</span>
-                <span><strong>Education:</strong> IIT (ISM) Dhanbad</span>
-            </div>
-        </header>
-
-        <h2>Summary</h2>
-        <p class="summary">
-            11+ years building customer-focused products across frontend, backend and distributed systems.
-            Deep hands-on experience with <strong>Java</strong>, <strong>Python</strong>, <strong>React</strong>
-            and <strong>React Native</strong>. Shipped production <strong>RAG</strong>, <strong>GPT</strong>
-            and <strong>STT</strong> pipelines. B.Tech in Computer Science &amp; Engineering, IIT (ISM) Dhanbad.
-        </p>
-
-        <h2>Experience</h2>
-
-        <div class="role">
-            <div class="role-head">
-                <div class="role-title">Senior Frontend Engineer · <span class="role-co">Sequoia (Murren Consulting)</span></div>
-                <div class="role-date">Jul 2024 — Present</div>
-            </div>
-            <ul>
-                <li>Partner closely with the Product team to deliver features for CompOS products.</li>
-                <li>Guide and mentor fellow developers to ship features with consistently great quality.</li>
-            </ul>
-            <div class="tags"><span class="tag">ReactJS</span><span class="tag">JavaScript</span></div>
-        </div>
-
-        <div class="role">
-            <div class="role-head">
-                <div class="role-title">Senior Software Engineer · <span class="role-co">SpotLYT (AIBAE Tech.)</span></div>
-                <div class="role-date">Aug 2023 — Present</div>
-            </div>
-            <ul>
-                <li>Led a team of talented engineers across frontend and backend.</li>
-                <li>Designed and built core data pipelines for AI analysis — STT, sentiment analysis and user analytics.</li>
-                <li>Led development of microservices and frontend applications end to end.</li>
-            </ul>
-            <div class="tags">
-                <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Flask</span>
-                <span class="tag">NodeJS</span><span class="tag">NestJS</span><span class="tag">PostgreSQL</span>
-                <span class="tag">MongoDB</span><span class="tag">OpenAI GPT</span><span class="tag">RAG</span>
-                <span class="tag">ReactJS</span><span class="tag">NextJS</span>
+    <section class="hero">
+        <div class="hero-top">
+            <div class="hero-brand"><span class="mark">MS</span></div>
+            <div class="hero-text">
+                <h1>Manish Sharma</h1>
+                <p class="role">Senior Software Engineer</p>
             </div>
         </div>
-
-        <div class="role">
-            <div class="role-head">
-                <div class="role-title">Senior Software Engineer · <span class="role-co">Embibe</span></div>
-                <div class="role-date">Aug 2020 — Aug 2023</div>
+        <div class="status"><span class="dot"></span>Senior Software Engineer · Bengaluru · IIT (ISM) Dhanbad</div>
+        <div class="chips">
+            <span class="chip chip-ai">RAG</span>
+            <span class="chip chip-ai">GPT</span>
+            <span class="chip chip-ai">STT pipelines</span>
+            <span class="chip">Java</span>
+            <span class="chip">Python</span>
+            <span class="chip">React</span>
+            <span class="chip">React Native</span>
+        </div>
+        <div class="hero-meta">
+            <div class="stat">
+                <div class="n">11+</div>
+                <div class="l">Years of experience</div>
             </div>
-            <ul>
-                <li>Owned and led multiple features — video playing, user behavior tracking and onboarding — on Embibe's B2C consumer platform, Student Web.</li>
-                <li>Integrated the Student Web application into MyJio's Education platform.</li>
-                <li>Led development of a chatbot app enabling chat-like interaction for students to watch videos, practice and clear doubts.</li>
-            </ul>
-            <div class="tags"><span class="tag">ReactJS</span><span class="tag">NextJS</span><span class="tag">Android</span></div>
-        </div>
-
-        <div class="role">
-            <div class="role-head">
-                <div class="role-title">Senior Software Engineer · <span class="role-co">AutoGrid India</span></div>
-                <div class="role-date">Dec 2018 — Apr 2020</div>
+            <div class="stat">
+                <div class="n">7</div>
+                <div class="l">Companies &amp; teams</div>
             </div>
-            <ul>
-                <li>Led the effort to split a monolithic legacy Ruby on Rails application into microservices and Angular SPAs.</li>
-                <li>Drove the migration from instance-based deployments to Kubernetes clusters — containerization, auto-scaling and failure recovery.</li>
-                <li>Integrated Tableau into the DROMS project, eliminating duplicated effort building charts into internal dashboards.</li>
-            </ul>
-            <div class="tags"><span class="tag">Angular</span><span class="tag">Ruby on Rails</span><span class="tag">Docker</span><span class="tag">Kubernetes</span></div>
-        </div>
-
-        <div class="role">
-            <div class="role-head">
-                <div class="role-title">Senior Software Consultant · <span class="role-co">Charcoaleats</span></div>
-                <div class="role-date">Jun 2018 — Dec 2018</div>
+            <div class="stat">
+                <div class="n">AI-ready</div>
+                <div class="l">RAG · GPT · STT in prod</div>
             </div>
-            <ul>
-                <li>Worked on GST invoice integration and upgraded WebSocket infrastructure for POS applications.</li>
-                <li>Developed a new POS application using NodeJS, ReactJS and React Native.</li>
-            </ul>
-            <div class="tags"><span class="tag">React</span><span class="tag">React Native</span><span class="tag">NodeJS</span></div>
         </div>
+    </section>
 
-        <div class="role">
-            <div class="role-head">
-                <div class="role-title">Software Design Engineer · <span class="role-co">Sokrati Technologies</span></div>
-                <div class="role-date">Jun 2015 — Jun 2018</div>
+    <div class="ai-band">
+        <div class="ai-inner">
+            <div class="ai-label">AI &amp; intelligent systems</div>
+            <p>Designed and shipped production pipelines for RAG, LLM integrations and speech-to-text — wired into
+                microservices and product surfaces.</p>
+            <span class="tag-glow">RAG</span>
+            <span class="tag-glow">OpenAI GPT</span>
+            <span class="tag-glow">STT pipelines</span>
+        </div>
+    </div>
+
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-block">
+                <h2>At a glance</h2>
+                <div class="info-row"><span>Location</span><strong>Bengaluru, India</strong></div>
+                <div class="info-row"><span>GitHub</span><strong>manishsharma004</strong></div>
+                <div class="info-row"><span>Education</span><strong>IIT (ISM) Dhanbad</strong></div>
+                <div class="info-row"><span>Focus</span><strong>Full-stack · AI systems</strong></div>
             </div>
-            <ul>
-                <li>Built automated marketing campaign launchers for Google and Facebook.</li>
-                <li>Developed microservices powering the Launch UI and automated campaign launchers.</li>
-            </ul>
-            <div class="tags"><span class="tag">Java</span><span class="tag">Spring</span><span class="tag">Hibernate</span><span class="tag">Kafka</span><span class="tag">ReactJS</span></div>
-        </div>
 
-        <h2>Core Skills</h2>
-        <div class="skills-grid">
-            <div><strong>Primary</strong> Java · Python · React · React Native · TypeScript</div>
-            <div><strong>Backend</strong> Spring Boot · FastAPI · Flask · Node.js · NestJS</div>
-            <div><strong>AI / Data</strong> RAG · OpenAI GPT · STT pipelines · Kafka · PostgreSQL · MongoDB</div>
-            <div><strong>Infra</strong> Kubernetes · Docker · Nginx · Redis · ElasticSearch</div>
-        </div>
+            <div class="sidebar-block">
+                <h2>Core pillars</h2>
+                <div class="pillar pillar-java">
+                    <h3>Java</h3>
+                    <p>Spring Boot · Spring · Hibernate · Kafka</p>
+                </div>
+                <div class="pillar pillar-python">
+                    <h3>Python</h3>
+                    <p>FastAPI · Flask · RAG · GPT · STT</p>
+                </div>
+                <div class="pillar pillar-react">
+                    <h3>React</h3>
+                    <p>Next.js · TypeScript · Node.js · NestJS</p>
+                </div>
+                <div class="pillar pillar-rn">
+                    <h3>React Native</h3>
+                    <p>Android · REST APIs · WebSockets</p>
+                </div>
+            </div>
 
-        <h2>Education</h2>
-        <p class="edu">
-            <strong>B.Tech, Computer Science &amp; Engineering</strong> — IIT (ISM) Dhanbad<br />
-            Jul 2011 — May 2015
-        </p>
+            <div class="sidebar-block">
+                <h2>Also</h2>
+                <p style="margin:0;font-size:7.5pt;color:#94a3b8;line-height:1.4;">
+                    PostgreSQL · MongoDB · Kubernetes · Docker · Kafka · Redis · ElasticSearch
+                </p>
+            </div>
+        </aside>
+
+        <main class="main">
+            <h2>Summary</h2>
+            <p class="summary">
+                11+ years building customer-focused products across frontend, backend and distributed systems.
+                Deep experience with <strong>Java</strong>, <strong>Python</strong>, <strong>React</strong> and
+                <strong>React Native</strong>. Shipped production <strong>RAG</strong>, <strong>GPT</strong> and
+                <strong>STT</strong> pipelines. B.Tech CSE, IIT (ISM) Dhanbad.
+            </p>
+
+            <h2>Experience</h2>
+
+            <article class="xp">
+                <div class="xp-top">
+                    <div class="xp-role">Senior Frontend Engineer · <span class="xp-co">Sequoia (Murren Consulting)</span></div>
+                    <div class="xp-date">Jul 2024 — Present</div>
+                </div>
+                <ul>
+                    <li>Partner closely with the Product team to deliver features for CompOS products.</li>
+                    <li>Guide and mentor fellow developers to ship features with consistently great quality.</li>
+                </ul>
+                <span class="tag">ReactJS</span><span class="tag">JavaScript</span>
+            </article>
+
+            <article class="xp">
+                <div class="xp-top">
+                    <div class="xp-role">Senior Software Engineer · <span class="xp-co">SpotLYT (AIBAE Tech.)</span></div>
+                    <div class="xp-date">Aug 2023 — Present</div>
+                </div>
+                <ul>
+                    <li>Led a team of talented engineers across frontend and backend.</li>
+                    <li>Designed and built core data pipelines for AI analysis — STT, sentiment analysis and user analytics.</li>
+                    <li>Led development of microservices and frontend applications end to end.</li>
+                </ul>
+                <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">RAG</span>
+                <span class="tag">OpenAI GPT</span><span class="tag">ReactJS</span><span class="tag">NextJS</span>
+            </article>
+
+            <article class="xp">
+                <div class="xp-top">
+                    <div class="xp-role">Senior Software Engineer · <span class="xp-co">Embibe</span></div>
+                    <div class="xp-date">Aug 2020 — Aug 2023</div>
+                </div>
+                <ul>
+                    <li>Owned video playing, user behavior tracking and onboarding on Embibe's B2C platform, Student Web.</li>
+                    <li>Integrated the Student Web application into MyJio's Education platform.</li>
+                    <li>Led development of a chatbot app for students to watch videos, practice and clear doubts.</li>
+                </ul>
+                <span class="tag">ReactJS</span><span class="tag">NextJS</span><span class="tag">Android</span>
+            </article>
+
+            <article class="xp">
+                <div class="xp-top">
+                    <div class="xp-role">Senior Software Engineer · <span class="xp-co">AutoGrid India</span></div>
+                    <div class="xp-date">Dec 2018 — Apr 2020</div>
+                </div>
+                <ul>
+                    <li>Split a monolithic Ruby on Rails app into microservices and Angular SPAs.</li>
+                    <li>Migrated deployments to Kubernetes — containerization, auto-scaling and failure recovery.</li>
+                    <li>Integrated Tableau into DROMS, eliminating duplicated chart-building effort.</li>
+                </ul>
+                <span class="tag">Angular</span><span class="tag">Kubernetes</span><span class="tag">Docker</span>
+            </article>
+
+            <article class="xp">
+                <div class="xp-top">
+                    <div class="xp-role">Senior Software Consultant · <span class="xp-co">Charcoaleats</span></div>
+                    <div class="xp-date">Jun 2018 — Dec 2018</div>
+                </div>
+                <ul>
+                    <li>GST invoice integration and upgraded WebSocket infrastructure for POS applications.</li>
+                    <li>Developed a new POS application using NodeJS, ReactJS and React Native.</li>
+                </ul>
+                <span class="tag">React Native</span><span class="tag">NodeJS</span>
+            </article>
+
+            <article class="xp">
+                <div class="xp-top">
+                    <div class="xp-role">Software Design Engineer · <span class="xp-co">Sokrati Technologies</span></div>
+                    <div class="xp-date">Jun 2015 — Jun 2018</div>
+                </div>
+                <ul>
+                    <li>Built automated marketing campaign launchers for Google and Facebook.</li>
+                    <li>Developed microservices powering the Launch UI and automated campaign launchers.</li>
+                </ul>
+                <span class="tag">Java</span><span class="tag">Spring</span><span class="tag">Kafka</span>
+            </article>
+
+            <h2>Education</h2>
+            <div class="edu-card">
+                <strong>B.Tech, Computer Science &amp; Engineering</strong><br />
+                <span class="school">IIT (ISM) Dhanbad</span> · Jul 2011 — May 2015
+            </div>
+        </main>
     </div>
 </body>
 

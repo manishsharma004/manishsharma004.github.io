@@ -17,11 +17,12 @@ fi
     --quiet \
     --enable-local-file-access \
     --print-media-type \
+    --background \
     --page-size A4 \
-    --margin-top 14mm \
-    --margin-bottom 14mm \
-    --margin-left 16mm \
-    --margin-right 16mm \
+    --margin-top 10mm \
+    --margin-bottom 10mm \
+    --margin-left 10mm \
+    --margin-right 10mm \
     "$HTML" \
     "$OUT"
 
