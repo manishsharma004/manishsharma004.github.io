@@ -18,11 +18,12 @@ fi
     --enable-local-file-access \
     --print-media-type \
     --background \
+    --disable-smart-shrinking \
     --page-size A4 \
-    --margin-top 10mm \
-    --margin-bottom 10mm \
-    --margin-left 10mm \
-    --margin-right 10mm \
+    --margin-top 8mm \
+    --margin-bottom 8mm \
+    --margin-left 8mm \
+    --margin-right 8mm \
     "$HTML" \
     "$OUT"
 

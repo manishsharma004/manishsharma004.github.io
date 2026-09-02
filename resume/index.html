@@ -4,564 +4,452 @@
 <head>
     <meta charset="utf-8" />
     <title>Manish Sharma — Résumé</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <style>
-        :root {
-            --bg: #ffffff;
-            --bg-alt: #f6f8fb;
-            --surface: #ffffff;
-            --text: #0f172a;
-            --muted: #475569;
-            --faint: #64748b;
-            --border: #e6eaf0;
-            --accent: #2563eb;
-            --accent-dark: #1d4ed8;
-            --accent-soft: #eff4ff;
-            --ink: #0b1220;
-            --radius: 12px;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
 
         body {
             margin: 0;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            font-size: 9.5pt;
-            line-height: 1.45;
-            color: var(--text);
-            background: var(--bg);
+            font-family: 'Inter', Arial, sans-serif;
+            font-size: 9pt;
+            line-height: 1.4;
+            color: #0f172a;
+            background: #ffffff;
             -webkit-print-color-adjust: exact;
             print-color-adjust: exact;
         }
 
-        .hero {
-            padding: 22px 24px 20px;
-            background:
-                radial-gradient(520px 220px at 88% -20%, rgba(37, 99, 235, .14), transparent 60%),
-                radial-gradient(420px 200px at 0% 0%, rgba(79, 70, 229, .10), transparent 55%),
-                var(--bg);
-            border-bottom: 1px solid var(--border);
-        }
+        table { border-collapse: collapse; }
 
-        .hero-top {
-            display: table;
+        /* ---- Header (compact, site-style) ---- */
+        .header {
             width: 100%;
+            background: #ffffff;
+            background-image:
+                radial-gradient(420px 160px at 90% 0%, rgba(37, 99, 235, 0.12), transparent 60%),
+                radial-gradient(360px 140px at 0% 0%, rgba(79, 70, 229, 0.08), transparent 55%);
+            border-bottom: 1px solid #e6eaf0;
         }
 
-        .hero-brand {
-            display: table-cell;
-            vertical-align: middle;
-            width: 58px;
-        }
+        .header td { padding: 14px 16px 12px; vertical-align: middle; }
 
         .mark {
             display: inline-block;
-            width: 46px;
-            height: 46px;
-            line-height: 46px;
+            width: 42px;
+            height: 42px;
+            line-height: 42px;
             text-align: center;
-            border-radius: 11px;
-            background: linear-gradient(135deg, var(--accent), #4f46e5);
-            color: #fff;
+            border-radius: 10px;
+            background: #2563eb;
+            background-image: linear-gradient(135deg, #2563eb, #4f46e5);
+            color: #ffffff;
             font-weight: 800;
-            font-size: 14px;
-        }
-
-        .hero-text {
-            display: table-cell;
-            vertical-align: middle;
-            padding-left: 14px;
+            font-size: 13px;
         }
 
         h1 {
-            font-size: 22pt;
+            margin: 0 0 2px;
+            font-size: 20pt;
             font-weight: 800;
             letter-spacing: -0.03em;
-            color: var(--ink);
-            margin: 0 0 2px;
+            color: #0b1220;
         }
 
         .role {
-            font-size: 11.5pt;
-            font-weight: 600;
-            color: var(--accent);
             margin: 0;
+            font-size: 10.5pt;
+            font-weight: 600;
+            color: #2563eb;
         }
 
         .status {
             display: inline-block;
-            margin-top: 10px;
-            padding: 5px 12px;
-            border: 1px solid var(--border);
+            margin-top: 8px;
+            padding: 4px 10px;
+            border: 1px solid #e6eaf0;
             border-radius: 999px;
-            background: var(--surface);
-            font-size: 8.5pt;
-            font-weight: 500;
-            color: var(--muted);
+            background: #ffffff;
+            font-size: 7.5pt;
+            color: #475569;
         }
 
         .dot {
             display: inline-block;
-            width: 7px;
-            height: 7px;
+            width: 6px;
+            height: 6px;
             border-radius: 50%;
             background: #22c55e;
-            margin-right: 6px;
+            margin-right: 5px;
             vertical-align: middle;
-        }
-
-        .chips {
-            margin-top: 10px;
         }
 
         .chip {
             display: inline-block;
-            font-size: 7.5pt;
+            font-size: 7pt;
             font-weight: 600;
-            color: var(--muted);
-            background: var(--surface);
-            border: 1px solid var(--border);
+            color: #475569;
+            background: #ffffff;
+            border: 1px solid #e6eaf0;
             border-radius: 999px;
-            padding: 4px 10px;
-            margin: 0 5px 5px 0;
+            padding: 3px 8px;
+            margin: 6px 4px 0 0;
         }
 
         .chip-ai {
             color: #4338ca;
-            background: linear-gradient(135deg, #eef2ff, #f5f3ff);
+            background: #eef2ff;
             border-color: #c7d2fe;
         }
 
-        .hero-meta {
-            margin-top: 14px;
-            padding-top: 12px;
-            border-top: 1px solid var(--border);
-            display: table;
-            width: 100%;
-        }
-
-        .stat {
-            display: table-cell;
-            padding-right: 18px;
-        }
-
-        .stat .n {
-            font-size: 15pt;
+        .stat-n {
+            font-size: 13pt;
             font-weight: 800;
-            color: var(--ink);
-            letter-spacing: -0.02em;
+            color: #0b1220;
         }
 
-        .stat .l {
-            font-size: 7.5pt;
-            color: var(--faint);
-        }
-
-        .ai-band {
-            margin: 14px 16px 0;
-            padding: 2px;
-            border-radius: var(--radius);
-            background: linear-gradient(135deg, #6366f1, #2563eb, #7c3aed);
-        }
-
-        .ai-inner {
-            border-radius: 10px;
-            padding: 12px 14px;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: #e2e8f0;
-        }
-
-        .ai-label {
+        .stat-l {
             font-size: 7pt;
-            font-weight: 700;
-            letter-spacing: .12em;
-            text-transform: uppercase;
-            color: #93c5fd;
-            margin-bottom: 4px;
+            color: #64748b;
         }
 
-        .ai-inner p {
-            margin: 0 0 8px;
-            font-size: 8.5pt;
-            color: #94a3b8;
-        }
-
-        .tag-glow {
-            display: inline-block;
-            font-size: 7pt;
-            font-weight: 600;
-            color: #e0e7ff;
-            background: rgba(99, 102, 241, .28);
-            border: 1px solid rgba(129, 140, 248, .45);
-            border-radius: 6px;
-            padding: 3px 8px;
-            margin: 0 4px 4px 0;
-        }
-
-        .layout {
-            display: table;
-            width: 100%;
-            table-layout: fixed;
-        }
+        /* ---- Body layout ---- */
+        .body-table { width: 100%; }
 
         .sidebar {
-            display: table-cell;
-            width: 31%;
+            width: 30%;
             vertical-align: top;
-            background: var(--ink);
+            background: #0b1220;
             color: #cbd5e1;
-            padding: 16px 14px;
+            padding: 12px 11px;
         }
 
         .main {
-            display: table-cell;
+            width: 70%;
             vertical-align: top;
-            padding: 14px 16px 18px;
-            background: var(--bg);
+            padding: 12px 14px 14px;
+            background: #ffffff;
         }
 
-        .sidebar h2,
-        .main h2 {
+        .sec {
             font-size: 7pt;
             font-weight: 700;
-            letter-spacing: .14em;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
-            margin: 0 0 8px;
+            margin: 0 0 7px;
         }
 
-        .sidebar h2 {
-            color: #93c5fd;
+        .sidebar .sec { color: #93c5fd; }
+
+        .main .sec {
+            color: #2563eb;
+            border-bottom: 1px solid #e6eaf0;
+            padding-bottom: 3px;
+            margin-top: 10px;
+            margin-bottom: 8px;
         }
 
-        .main h2 {
-            color: var(--accent);
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 4px;
-            margin-bottom: 10px;
-        }
-
-        .sidebar-block {
-            margin-bottom: 14px;
-        }
+        .main .sec:first-child { margin-top: 0; }
 
         .info-row {
-            font-size: 8pt;
-            padding: 5px 0;
-            border-bottom: 1px dashed rgba(255, 255, 255, .12);
+            font-size: 7.5pt;
+            padding: 4px 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.12);
         }
 
-        .info-row span {
-            display: block;
-            color: #94a3b8;
-            font-size: 7pt;
-        }
+        .info-label { display: block; color: #94a3b8; font-size: 6.5pt; }
 
-        .info-row strong {
-            color: #f1f5f9;
-            font-weight: 600;
-        }
+        .info-val { color: #f1f5f9; font-weight: 600; }
 
         .pillar {
-            margin-bottom: 8px;
-            padding: 8px 9px 8px 11px;
-            border-radius: 9px;
-            background: rgba(255, 255, 255, .05);
-            border: 1px solid rgba(255, 255, 255, .10);
-            border-left: 4px solid var(--pillar-color);
+            margin-bottom: 6px;
+            padding: 6px 8px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 3px solid #2563eb;
         }
 
-        .pillar-java { --pillar-color: #ea580c; }
-        .pillar-python { --pillar-color: #2563eb; }
-        .pillar-react { --pillar-color: #0891b2; }
-        .pillar-rn { --pillar-color: #7c3aed; }
+        .pillar-java { border-left-color: #ea580c; }
+        .pillar-python { border-left-color: #2563eb; }
+        .pillar-react { border-left-color: #0891b2; }
+        .pillar-rn { border-left-color: #7c3aed; }
 
         .pillar h3 {
-            font-size: 8.5pt;
-            color: #fff;
-            margin: 0 0 2px;
+            margin: 0 0 1px;
+            font-size: 8pt;
+            color: #ffffff;
         }
 
         .pillar p {
             margin: 0;
+            font-size: 6.5pt;
+            color: #94a3b8;
+            line-height: 1.35;
+        }
+
+        .ai-box {
+            margin-bottom: 10px;
+            padding: 8px 9px;
+            border-radius: 8px;
+            background: #1e293b;
+            border: 1px solid #334155;
+        }
+
+        .ai-label {
+            font-size: 6.5pt;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #93c5fd;
+            margin-bottom: 3px;
+        }
+
+        .ai-box p {
+            margin: 0 0 5px;
             font-size: 7pt;
             color: #94a3b8;
             line-height: 1.35;
         }
 
-        .summary {
-            margin: 0 0 12px;
-            color: var(--muted);
-            font-size: 9pt;
+        .tag-glow {
+            display: inline-block;
+            font-size: 6.5pt;
+            font-weight: 600;
+            color: #e0e7ff;
+            background: #3730a3;
+            border: 1px solid #6366f1;
+            border-radius: 5px;
+            padding: 2px 6px;
+            margin: 0 3px 3px 0;
         }
 
-        .summary strong {
-            color: var(--ink);
+        .summary {
+            margin: 0 0 4px;
+            color: #475569;
+            font-size: 8.5pt;
         }
+
+        .summary strong { color: #0f172a; }
 
         .xp {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 10px 12px;
-            margin-bottom: 9px;
-            page-break-inside: avoid;
-            box-shadow: 0 1px 2px rgba(15, 23, 42, .06);
-        }
-
-        .xp-top {
-            display: table;
-            width: 100%;
-            margin-bottom: 4px;
+            background: #ffffff;
+            border: 1px solid #e6eaf0;
+            border-radius: 8px;
+            padding: 7px 9px;
+            margin-bottom: 7px;
         }
 
         .xp-role {
-            display: table-cell;
-            font-size: 9.5pt;
+            font-size: 8.5pt;
             font-weight: 700;
-            color: var(--ink);
+            color: #0b1220;
         }
 
-        .xp-co {
-            color: var(--accent);
-            font-weight: 600;
-        }
+        .xp-co { color: #2563eb; font-weight: 600; }
 
         .xp-date {
-            display: table-cell;
-            text-align: right;
-            font-size: 7.5pt;
+            font-size: 7pt;
             font-weight: 600;
-            color: var(--faint);
-            white-space: nowrap;
+            color: #64748b;
+            float: right;
         }
 
         ul {
-            margin: 4px 0 6px;
-            padding-left: 15px;
-            color: var(--muted);
-            font-size: 8.5pt;
+            margin: 3px 0 4px;
+            padding-left: 14px;
+            color: #475569;
+            font-size: 7.5pt;
         }
 
-        li {
-            margin-bottom: 2px;
-        }
+        li { margin-bottom: 1px; }
 
         .tag {
             display: inline-block;
-            font-size: 7pt;
+            font-size: 6.5pt;
             font-weight: 600;
-            color: var(--muted);
-            background: var(--bg-alt);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 2px 7px;
-            margin: 0 4px 4px 0;
+            color: #64748b;
+            background: #f6f8fb;
+            border: 1px solid #e6eaf0;
+            border-radius: 5px;
+            padding: 1px 6px;
+            margin: 0 3px 3px 0;
         }
 
         .edu-card {
-            background: var(--bg-alt);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 10px 12px;
-            font-size: 8.5pt;
-            color: var(--muted);
+            background: #f6f8fb;
+            border: 1px solid #e6eaf0;
+            border-radius: 8px;
+            padding: 7px 9px;
+            font-size: 8pt;
+            color: #475569;
         }
 
-        .edu-card strong {
-            color: var(--ink);
-        }
+        .school { color: #2563eb; font-weight: 600; }
 
-        .school {
-            color: var(--accent);
-            font-weight: 600;
-        }
+        .block { margin-bottom: 10px; }
     </style>
 </head>
 
 <body>
-    <section class="hero">
-        <div class="hero-top">
-            <div class="hero-brand"><span class="mark">MS</span></div>
-            <div class="hero-text">
+    <!-- Compact header -->
+    <table class="header">
+        <tr>
+            <td style="width:52px;padding-right:0;">
+                <span class="mark">MS</span>
+            </td>
+            <td>
                 <h1>Manish Sharma</h1>
                 <p class="role">Senior Software Engineer</p>
-            </div>
-        </div>
-        <div class="status"><span class="dot"></span>Senior Software Engineer · Bengaluru · IIT (ISM) Dhanbad</div>
-        <div class="chips">
-            <span class="chip chip-ai">RAG</span>
-            <span class="chip chip-ai">GPT</span>
-            <span class="chip chip-ai">STT pipelines</span>
-            <span class="chip">Java</span>
-            <span class="chip">Python</span>
-            <span class="chip">React</span>
-            <span class="chip">React Native</span>
-        </div>
-        <div class="hero-meta">
-            <div class="stat">
-                <div class="n">11+</div>
-                <div class="l">Years of experience</div>
-            </div>
-            <div class="stat">
-                <div class="n">7</div>
-                <div class="l">Companies &amp; teams</div>
-            </div>
-            <div class="stat">
-                <div class="n">AI-ready</div>
-                <div class="l">RAG · GPT · STT in prod</div>
-            </div>
-        </div>
-    </section>
-
-    <div class="ai-band">
-        <div class="ai-inner">
-            <div class="ai-label">AI &amp; intelligent systems</div>
-            <p>Designed and shipped production pipelines for RAG, LLM integrations and speech-to-text — wired into
-                microservices and product surfaces.</p>
-            <span class="tag-glow">RAG</span>
-            <span class="tag-glow">OpenAI GPT</span>
-            <span class="tag-glow">STT pipelines</span>
-        </div>
-    </div>
-
-    <div class="layout">
-        <aside class="sidebar">
-            <div class="sidebar-block">
-                <h2>At a glance</h2>
-                <div class="info-row"><span>Location</span><strong>Bengaluru, India</strong></div>
-                <div class="info-row"><span>GitHub</span><strong>manishsharma004</strong></div>
-                <div class="info-row"><span>Education</span><strong>IIT (ISM) Dhanbad</strong></div>
-                <div class="info-row"><span>Focus</span><strong>Full-stack · AI systems</strong></div>
-            </div>
-
-            <div class="sidebar-block">
-                <h2>Core pillars</h2>
-                <div class="pillar pillar-java">
-                    <h3>Java</h3>
-                    <p>Spring Boot · Spring · Hibernate · Kafka</p>
+                <span class="status"><span class="dot"></span>Bengaluru · IIT (ISM) Dhanbad · github.com/manishsharma004</span>
+                <div>
+                    <span class="chip chip-ai">RAG</span>
+                    <span class="chip chip-ai">GPT</span>
+                    <span class="chip chip-ai">STT</span>
+                    <span class="chip">Java</span>
+                    <span class="chip">Python</span>
+                    <span class="chip">React</span>
+                    <span class="chip">React Native</span>
                 </div>
-                <div class="pillar pillar-python">
-                    <h3>Python</h3>
-                    <p>FastAPI · Flask · RAG · GPT · STT</p>
-                </div>
-                <div class="pillar pillar-react">
-                    <h3>React</h3>
-                    <p>Next.js · TypeScript · Node.js · NestJS</p>
-                </div>
-                <div class="pillar pillar-rn">
-                    <h3>React Native</h3>
-                    <p>Android · REST APIs · WebSockets</p>
-                </div>
-            </div>
+            </td>
+            <td style="width:170px;text-align:right;vertical-align:bottom;">
+                <div class="stat-n">11+</div>
+                <div class="stat-l">Years experience</div>
+                <div class="stat-n" style="margin-top:6px;">7</div>
+                <div class="stat-l">Companies</div>
+            </td>
+        </tr>
+    </table>
 
-            <div class="sidebar-block">
-                <h2>Also</h2>
-                <p style="margin:0;font-size:7.5pt;color:#94a3b8;line-height:1.4;">
-                    PostgreSQL · MongoDB · Kubernetes · Docker · Kafka · Redis · ElasticSearch
+    <!-- Two-column body (real table — wkhtmltopdf-safe) -->
+    <table class="body-table">
+        <tr>
+            <td class="sidebar">
+                <div class="ai-box">
+                    <div class="ai-label">AI &amp; intelligent systems</div>
+                    <p>Production RAG, GPT and STT pipelines wired into microservices and product surfaces.</p>
+                    <span class="tag-glow">RAG</span>
+                    <span class="tag-glow">GPT</span>
+                    <span class="tag-glow">STT</span>
+                </div>
+
+                <div class="block">
+                    <div class="sec">At a glance</div>
+                    <div class="info-row"><span class="info-label">Location</span><span class="info-val">Bengaluru, India</span></div>
+                    <div class="info-row"><span class="info-label">Focus</span><span class="info-val">Full-stack · AI</span></div>
+                    <div class="info-row"><span class="info-label">GitHub</span><span class="info-val">manishsharma004</span></div>
+                </div>
+
+                <div class="block">
+                    <div class="sec">Core pillars</div>
+                    <div class="pillar pillar-java">
+                        <h3>Java</h3>
+                        <p>Spring Boot · Spring · Hibernate · Kafka</p>
+                    </div>
+                    <div class="pillar pillar-python">
+                        <h3>Python</h3>
+                        <p>FastAPI · Flask · RAG · GPT · STT</p>
+                    </div>
+                    <div class="pillar pillar-react">
+                        <h3>React</h3>
+                        <p>Next.js · TypeScript · Node.js · NestJS</p>
+                    </div>
+                    <div class="pillar pillar-rn">
+                        <h3>React Native</h3>
+                        <p>Android · REST · WebSockets</p>
+                    </div>
+                </div>
+
+                <div class="block">
+                    <div class="sec">Also</div>
+                    <p style="margin:0;font-size:6.5pt;color:#94a3b8;line-height:1.4;">
+                        PostgreSQL · MongoDB · Kubernetes · Docker · Redis · ElasticSearch
+                    </p>
+                </div>
+            </td>
+
+            <td class="main">
+                <div class="sec">Summary</div>
+                <p class="summary">
+                    11+ years building customer-focused products across frontend, backend and distributed systems.
+                    Deep experience with <strong>Java</strong>, <strong>Python</strong>, <strong>React</strong> and
+                    <strong>React Native</strong>. Shipped production <strong>RAG</strong>, <strong>GPT</strong> and
+                    <strong>STT</strong> pipelines. B.Tech CSE, IIT (ISM) Dhanbad.
                 </p>
-            </div>
-        </aside>
 
-        <main class="main">
-            <h2>Summary</h2>
-            <p class="summary">
-                11+ years building customer-focused products across frontend, backend and distributed systems.
-                Deep experience with <strong>Java</strong>, <strong>Python</strong>, <strong>React</strong> and
-                <strong>React Native</strong>. Shipped production <strong>RAG</strong>, <strong>GPT</strong> and
-                <strong>STT</strong> pipelines. B.Tech CSE, IIT (ISM) Dhanbad.
-            </p>
+                <div class="sec">Experience</div>
 
-            <h2>Experience</h2>
-
-            <article class="xp">
-                <div class="xp-top">
+                <div class="xp">
+                    <span class="xp-date">Jul 2024 — Present</span>
                     <div class="xp-role">Senior Frontend Engineer · <span class="xp-co">Sequoia (Murren Consulting)</span></div>
-                    <div class="xp-date">Jul 2024 — Present</div>
+                    <ul>
+                        <li>Partner with Product to deliver features for CompOS products.</li>
+                        <li>Mentor developers to ship with consistently high quality.</li>
+                    </ul>
+                    <span class="tag">ReactJS</span><span class="tag">JavaScript</span>
                 </div>
-                <ul>
-                    <li>Partner closely with the Product team to deliver features for CompOS products.</li>
-                    <li>Guide and mentor fellow developers to ship features with consistently great quality.</li>
-                </ul>
-                <span class="tag">ReactJS</span><span class="tag">JavaScript</span>
-            </article>
 
-            <article class="xp">
-                <div class="xp-top">
+                <div class="xp">
+                    <span class="xp-date">Aug 2023 — Present</span>
                     <div class="xp-role">Senior Software Engineer · <span class="xp-co">SpotLYT (AIBAE Tech.)</span></div>
-                    <div class="xp-date">Aug 2023 — Present</div>
+                    <ul>
+                        <li>Led engineers across frontend and backend.</li>
+                        <li>Built AI pipelines — STT, sentiment analysis, RAG and GPT integrations.</li>
+                        <li>Led microservices and frontend applications end to end.</li>
+                    </ul>
+                    <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">RAG</span>
+                    <span class="tag">GPT</span><span class="tag">ReactJS</span><span class="tag">NextJS</span>
                 </div>
-                <ul>
-                    <li>Led a team of talented engineers across frontend and backend.</li>
-                    <li>Designed and built core data pipelines for AI analysis — STT, sentiment analysis and user analytics.</li>
-                    <li>Led development of microservices and frontend applications end to end.</li>
-                </ul>
-                <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">RAG</span>
-                <span class="tag">OpenAI GPT</span><span class="tag">ReactJS</span><span class="tag">NextJS</span>
-            </article>
 
-            <article class="xp">
-                <div class="xp-top">
+                <div class="xp">
+                    <span class="xp-date">Aug 2020 — Aug 2023</span>
                     <div class="xp-role">Senior Software Engineer · <span class="xp-co">Embibe</span></div>
-                    <div class="xp-date">Aug 2020 — Aug 2023</div>
+                    <ul>
+                        <li>Owned video, onboarding and user behaviour on B2C platform, Student Web.</li>
+                        <li>Integrated Student Web into MyJio Education.</li>
+                        <li>Led chatbot app for students to watch videos, practice and clear doubts.</li>
+                    </ul>
+                    <span class="tag">ReactJS</span><span class="tag">NextJS</span><span class="tag">Android</span>
                 </div>
-                <ul>
-                    <li>Owned video playing, user behavior tracking and onboarding on Embibe's B2C platform, Student Web.</li>
-                    <li>Integrated the Student Web application into MyJio's Education platform.</li>
-                    <li>Led development of a chatbot app for students to watch videos, practice and clear doubts.</li>
-                </ul>
-                <span class="tag">ReactJS</span><span class="tag">NextJS</span><span class="tag">Android</span>
-            </article>
 
-            <article class="xp">
-                <div class="xp-top">
+                <div class="xp">
+                    <span class="xp-date">Dec 2018 — Apr 2020</span>
                     <div class="xp-role">Senior Software Engineer · <span class="xp-co">AutoGrid India</span></div>
-                    <div class="xp-date">Dec 2018 — Apr 2020</div>
+                    <ul>
+                        <li>Split monolithic Rails app into microservices and Angular SPAs.</li>
+                        <li>Migrated to Kubernetes — containerization, auto-scaling, failure recovery.</li>
+                        <li>Integrated Tableau into DROMS dashboards.</li>
+                    </ul>
+                    <span class="tag">Angular</span><span class="tag">Kubernetes</span><span class="tag">Docker</span>
                 </div>
-                <ul>
-                    <li>Split a monolithic Ruby on Rails app into microservices and Angular SPAs.</li>
-                    <li>Migrated deployments to Kubernetes — containerization, auto-scaling and failure recovery.</li>
-                    <li>Integrated Tableau into DROMS, eliminating duplicated chart-building effort.</li>
-                </ul>
-                <span class="tag">Angular</span><span class="tag">Kubernetes</span><span class="tag">Docker</span>
-            </article>
 
-            <article class="xp">
-                <div class="xp-top">
+                <div class="xp">
+                    <span class="xp-date">Jun 2018 — Dec 2018</span>
                     <div class="xp-role">Senior Software Consultant · <span class="xp-co">Charcoaleats</span></div>
-                    <div class="xp-date">Jun 2018 — Dec 2018</div>
+                    <ul>
+                        <li>GST invoice integration and WebSocket upgrades for POS apps.</li>
+                        <li>Built POS app using NodeJS, ReactJS and React Native.</li>
+                    </ul>
+                    <span class="tag">React Native</span><span class="tag">NodeJS</span>
                 </div>
-                <ul>
-                    <li>GST invoice integration and upgraded WebSocket infrastructure for POS applications.</li>
-                    <li>Developed a new POS application using NodeJS, ReactJS and React Native.</li>
-                </ul>
-                <span class="tag">React Native</span><span class="tag">NodeJS</span>
-            </article>
 
-            <article class="xp">
-                <div class="xp-top">
+                <div class="xp">
+                    <span class="xp-date">Jun 2015 — Jun 2018</span>
                     <div class="xp-role">Software Design Engineer · <span class="xp-co">Sokrati Technologies</span></div>
-                    <div class="xp-date">Jun 2015 — Jun 2018</div>
+                    <ul>
+                        <li>Built automated marketing campaign launchers for Google and Facebook.</li>
+                        <li>Developed microservices for Launch UI and campaign automation.</li>
+                    </ul>
+                    <span class="tag">Java</span><span class="tag">Spring</span><span class="tag">Kafka</span>
                 </div>
-                <ul>
-                    <li>Built automated marketing campaign launchers for Google and Facebook.</li>
-                    <li>Developed microservices powering the Launch UI and automated campaign launchers.</li>
-                </ul>
-                <span class="tag">Java</span><span class="tag">Spring</span><span class="tag">Kafka</span>
-            </article>
 
-            <h2>Education</h2>
-            <div class="edu-card">
-                <strong>B.Tech, Computer Science &amp; Engineering</strong><br />
-                <span class="school">IIT (ISM) Dhanbad</span> · Jul 2011 — May 2015
-            </div>
-        </main>
-    </div>
+                <div class="sec">Education</div>
+                <div class="edu-card">
+                    <strong>B.Tech, Computer Science &amp; Engineering</strong><br />
+                    <span class="school">IIT (ISM) Dhanbad</span> · Jul 2011 — May 2015
+                </div>
+            </td>
+        </tr>
+    </table>
 </body>
 
 </html>
