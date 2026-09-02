@@ -6,10 +6,22 @@
     <title>Manish Sharma — Résumé</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <style>
+        /* A4 print sheet: 210mm × 297mm */
+        @page {
+            size: A4 portrait;
+            margin: 10mm;
+        }
+
         * { box-sizing: border-box; }
+
+        html {
+            width: 210mm;
+        }
 
         body {
             margin: 0;
+            width: 190mm; /* A4 width minus 10mm margins each side */
+            min-height: 277mm; /* A4 height minus 10mm margins each side */
             font-family: 'Inter', Arial, sans-serif;
             font-size: 9pt;
             line-height: 1.4;
@@ -113,11 +125,20 @@
         }
 
         /* ---- Body layout ---- */
-        .body-table { width: 100%; }
+        .body-table {
+            width: 100%;
+            min-height: 230mm;
+            table-layout: fixed;
+        }
+
+        .body-table tr,
+        .body-table td {
+            height: 100%;
+            vertical-align: top;
+        }
 
         .sidebar {
             width: 30%;
-            vertical-align: top;
             background: #0b1220;
             color: #cbd5e1;
             padding: 12px 11px;
@@ -125,7 +146,6 @@
 
         .main {
             width: 70%;
-            vertical-align: top;
             padding: 12px 14px 14px;
             background: #ffffff;
         }

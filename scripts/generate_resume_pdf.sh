@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Generate resume/manish-sharma-resume.pdf from resume/index.html.
+# Output: A4 portrait (210mm × 297mm) with 10mm margins.
 # Requires wkhtmltopdf: https://wkhtmltopdf.org/
 set -euo pipefail
 
@@ -20,11 +21,28 @@ fi
     --background \
     --disable-smart-shrinking \
     --page-size A4 \
-    --margin-top 8mm \
-    --margin-bottom 8mm \
-    --margin-left 8mm \
-    --margin-right 8mm \
+    --orientation Portrait \
+    --dpi 96 \
+    --margin-top 10mm \
+    --margin-bottom 10mm \
+    --margin-left 10mm \
+    --margin-right 10mm \
     "$HTML" \
     "$OUT"
+
+# Verify A4 dimensions (595 × 842 pt ±1)
+python3 - "$OUT" <<'PY'
+import subprocess, re, sys
+info = subprocess.check_output(["pdfinfo", sys.argv[1]], text=True)
+m = re.search(r"Page size:\s+([\d.]+) x ([\d.]+) pts", info)
+pages = re.search(r"Pages:\s+(\d+)", info)
+if not m:
+    sys.exit(0)
+w, h = float(m.group(1)), float(m.group(2))
+if not (594 <= w <= 596 and 841 <= h <= 843):
+    print(f"Warning: expected A4 (595×842 pt), got {w}×{h} pt", file=sys.stderr)
+    sys.exit(1)
+print(f"Verified A4: {w:.0f}×{h:.0f} pt, {pages.group(1)} page(s)")
+PY
 
 echo "Wrote $OUT ($(wc -c < "$OUT") bytes)"
