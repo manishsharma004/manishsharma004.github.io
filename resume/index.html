@@ -33,7 +33,7 @@
 
         table { border-collapse: collapse; }
 
-        /* ---- Header (compact, site-style) ---- */
+        /* Header square mark: side length = header-row-1 + header-row-2 heights */
         .header {
             width: 100%;
             background: #ffffff;
@@ -43,26 +43,33 @@
             border-bottom: 1px solid #e6eaf0;
         }
 
-        .header td { padding: 10px 16px; }
+        .header td { padding: 0; }
 
-        .header-mark {
-            width: 58px;
-            padding: 0 10px 0 14px;
+        .header-mark-wrap {
+            width: 130px;
+            padding: 0 8px 0 14px;
             vertical-align: middle;
-            text-align: center;
-            font-weight: 800;
-            font-size: 22px;
-            letter-spacing: -0.02em;
-            color: #ffffff;
-            background: #2563eb;
-            background-image: linear-gradient(135deg, #2563eb, #4f46e5);
-            border-radius: 12px;
-            line-height: 1;
         }
 
-        .header-main {
-            padding: 10px 12px;
-            vertical-align: middle;
+        /* SVG keeps width = height in wkhtmltopdf (table cells stretch otherwise) */
+        .header-mark {
+            display: block;
+            width: 108px;
+            height: 108px;
+        }
+
+        .header-line-1 {
+            padding: 10px 12px 2px;
+            vertical-align: bottom;
+            height: 54px;
+            overflow: hidden;
+        }
+
+        .header-line-2 {
+            padding: 2px 12px 10px;
+            vertical-align: top;
+            height: 54px;
+            overflow: hidden;
         }
 
         .header-stats {
@@ -89,7 +96,7 @@
 
         .status {
             display: inline-block;
-            margin-top: 8px;
+            margin-top: 0;
             padding: 4px 10px;
             border: 1px solid #e6eaf0;
             border-radius: 999px;
@@ -117,7 +124,7 @@
             border: 1px solid #e6eaf0;
             border-radius: 999px;
             padding: 3px 8px;
-            margin: 6px 4px 0 0;
+            margin: 4px 4px 0 0;
         }
 
         .chip-ai {
@@ -327,10 +334,31 @@
     <!-- Compact header -->
     <table class="header">
         <tr>
-            <td class="header-mark">MS</td>
-            <td class="header-main">
+            <td rowspan="2" class="header-mark-wrap">
+                <svg class="header-mark" viewBox="0 0 108 108" xmlns="http://www.w3.org/2000/svg" aria-label="MS">
+                    <defs>
+                        <linearGradient id="mark-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#2563eb" />
+                            <stop offset="100%" stop-color="#4f46e5" />
+                        </linearGradient>
+                    </defs>
+                    <rect width="108" height="108" rx="12" fill="url(#mark-grad)" />
+                    <text x="54" y="58" text-anchor="middle" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800" letter-spacing="-0.02em">MS</text>
+                </svg>
+            </td>
+            <td class="header-line-1">
                 <h1>Manish Sharma</h1>
                 <p class="role">Senior Software Engineer</p>
+            </td>
+            <td rowspan="2" class="header-stats">
+                <div class="stat-n">11+</div>
+                <div class="stat-l">Years experience</div>
+                <div class="stat-n" style="margin-top:6px;">7</div>
+                <div class="stat-l">Companies</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="header-line-2">
                 <span class="status"><span class="dot"></span>Bengaluru · IIT (ISM) Dhanbad · github.com/manishsharma004</span>
                 <div>
                     <span class="chip chip-ai">RAG</span>
@@ -341,12 +369,6 @@
                     <span class="chip">React</span>
                     <span class="chip">React Native</span>
                 </div>
-            </td>
-            <td class="header-stats">
-                <div class="stat-n">11+</div>
-                <div class="stat-l">Years experience</div>
-                <div class="stat-n" style="margin-top:6px;">7</div>
-                <div class="stat-l">Companies</div>
             </td>
         </tr>
     </table>
