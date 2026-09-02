@@ -42,6 +42,12 @@ path (`dsalgo/node_modules/codemirror/...`). It is already committed under
 - **Lint:** `.eslintrc` extends `next` configs, but no ESLint/Next toolchain is installed
   at the repo root, so there is no runnable lint command.
 
+### Résumé PDF
+- Source: `resume/index.html` (print-ready HTML with full experience)
+- Output: `resume/manish-sharma-resume.pdf` (committed; served by download links)
+- Regenerate locally with `wkhtmltopdf` installed: `bash scripts/generate_resume_pdf.sh`
+- To use your own PDF instead, replace `resume/manish-sharma-resume.pdf` directly.
+
 ### Gotcha
 `404.html` is still a legacy Next.js export and does not match the portfolio design.
 The `_next/` folder is only used by that 404 page.
