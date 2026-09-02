@@ -240,6 +240,35 @@ header.nav {
     color: var(--muted);
 }
 
+.hero .lede strong {
+    color: var(--ink);
+    font-weight: 600;
+}
+
+.hero-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.hero-chip {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 6px 14px;
+    box-shadow: var(--shadow-sm);
+}
+
+.hero-chip-ai {
+    color: #4338ca;
+    background: linear-gradient(135deg, #eef2ff, #f5f3ff);
+    border-color: #c7d2fe;
+}
+
 .hero-actions {
     display: flex;
     flex-wrap: wrap;
@@ -428,7 +457,230 @@ header.nav {
     padding: 4px 10px;
 }
 
-/* ---------- Skills ---------- */
+/* ---------- Skills (pillar layout) ---------- */
+.skills-page .section-head p {
+    max-width: 720px;
+}
+
+.ai-spotlight {
+    margin-bottom: 28px;
+    border-radius: calc(var(--radius) + 2px);
+    padding: 2px;
+    background: linear-gradient(135deg, #6366f1, #2563eb, #7c3aed);
+    box-shadow: var(--shadow-md);
+}
+
+.ai-spotlight-inner {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    border-radius: var(--radius);
+    padding: 28px 30px;
+    color: #e2e8f0;
+}
+
+.ai-spotlight-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #93c5fd;
+    margin-bottom: 10px;
+}
+
+.ai-spotlight-inner p {
+    color: #94a3b8;
+    margin-bottom: 18px;
+    max-width: 720px;
+}
+
+.tag-glow {
+    color: #e0e7ff !important;
+    background: rgba(99, 102, 241, .22) !important;
+    border-color: rgba(129, 140, 248, .45) !important;
+}
+
+.skill-pillars {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    margin-bottom: 32px;
+}
+
+.pillar {
+    --pillar-color: var(--accent);
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 26px 26px 24px;
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: box-shadow .2s ease, transform .2s ease;
+}
+
+.pillar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--pillar-color);
+}
+
+.pillar:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.pillar-java { --pillar-color: #ea580c; }
+.pillar-python { --pillar-color: #2563eb; }
+.pillar-react { --pillar-color: #0891b2; }
+.pillar-rn { --pillar-color: #7c3aed; }
+
+.pillar-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 12px;
+}
+
+.pillar-glyph {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: color-mix(in srgb, var(--pillar-color) 12%, white);
+    color: var(--pillar-color);
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: -0.03em;
+    flex-shrink: 0;
+}
+
+.pillar h3 {
+    font-size: 20px;
+}
+
+.pillar-sub {
+    font-size: 13.5px;
+    color: var(--faint);
+    margin: 2px 0 0;
+}
+
+.pillar-desc {
+    font-size: 15px;
+    color: var(--muted);
+    margin-bottom: 18px;
+}
+
+.pillar-orbit {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.orbit-core {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #fff;
+    background: var(--pillar-color);
+    border-radius: 8px;
+    padding: 5px 12px;
+}
+
+.orbit-sat {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--muted);
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 4px 10px;
+}
+
+.stack-flow {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+    margin-bottom: 36px;
+    padding: 22px 20px;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.stack-node {
+    flex: 1;
+    min-width: 0;
+    padding: 16px 14px;
+    border-radius: 10px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+}
+
+.stack-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.stack-items {
+    display: block;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.45;
+}
+
+.stack-node-ui .stack-label { color: #0891b2; }
+.stack-node-api .stack-label { color: #ea580c; }
+.stack-node-data .stack-label { color: #059669; }
+.stack-node-ai .stack-label { color: #7c3aed; }
+
+.stack-arrow {
+    display: flex;
+    align-items: center;
+    color: var(--faint);
+    font-size: 20px;
+    font-weight: 300;
+    flex-shrink: 0;
+}
+
+.skills-breadth {
+    border-top: 1px dashed var(--border);
+    padding-top: 32px;
+}
+
+.breadth-title {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: var(--faint);
+    font-weight: 600;
+}
+
+.breadth-groups {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px 32px;
+}
+
+.breadth-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+}
+
+/* Legacy skill cards (unused) */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -547,6 +799,15 @@ footer.site {
     color: #cbd5e1;
 }
 
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links a:hover {
+    color: #fff;
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 860px) {
     .about-grid {
@@ -599,7 +860,20 @@ footer.site {
     }
 
     .skills-grid,
-    .edu-grid {
+    .edu-grid,
+    .skill-pillars,
+    .breadth-groups {
         grid-template-columns: 1fr;
+    }
+
+    .stack-flow {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .stack-arrow {
+        justify-content: center;
+        transform: rotate(90deg);
+        padding: 4px 0;
     }
 }
