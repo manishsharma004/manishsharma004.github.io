@@ -6,10 +6,10 @@
     <title>Manish Sharma — Résumé</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <style>
-        /* A4 print sheet: 210mm × 297mm */
+        /* A4 print sheet: 210mm × 297mm — no left margin so sidebar is flush */
         @page {
             size: A4 portrait;
-            margin: 10mm;
+            margin: 10mm 10mm 10mm 0;
         }
 
         * { box-sizing: border-box; }
@@ -20,8 +20,8 @@
 
         body {
             margin: 0;
-            width: 190mm; /* A4 width minus 10mm margins each side */
-            min-height: 277mm; /* A4 height minus 10mm margins each side */
+            width: 200mm; /* A4 width minus 10mm right margin */
+            min-height: 277mm; /* A4 height minus 10mm top/bottom margins */
             font-family: 'Inter', Arial, sans-serif;
             font-size: 9pt;
             line-height: 1.4;
@@ -46,8 +46,24 @@
         .header td { padding: 0; }
 
         .header-mark-wrap {
-            width: 130px;
-            padding: 0 8px 0 14px;
+            width: auto;
+            padding: 0;
+            vertical-align: middle;
+        }
+
+        .header-mark-layout {
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        .header-mark-gutter {
+            width: 10mm;
+            padding: 0;
+        }
+
+        .header-mark-cell {
+            width: 108px;
+            padding: 0 8px 0 0;
             vertical-align: middle;
         }
 
@@ -74,7 +90,7 @@
 
         .header-stats {
             width: 170px;
-            padding: 10px 16px 10px 8px;
+            padding: 10px 10mm 10px 8px;
             text-align: right;
             vertical-align: middle;
         }
@@ -161,12 +177,12 @@
             width: 30%;
             background: #0b1220;
             color: #cbd5e1;
-            padding: 12px 11px;
+            padding: 12px 11px 12px 11px;
         }
 
         .main {
             width: 70%;
-            padding: 12px 14px 14px;
+            padding: 12px 10mm 14px 14px;
             background: #ffffff;
         }
 
@@ -335,16 +351,23 @@
     <table class="header">
         <tr>
             <td rowspan="2" class="header-mark-wrap">
-                <svg class="header-mark" viewBox="0 0 108 108" xmlns="http://www.w3.org/2000/svg" aria-label="MS">
-                    <defs>
-                        <linearGradient id="mark-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#2563eb" />
-                            <stop offset="100%" stop-color="#4f46e5" />
-                        </linearGradient>
-                    </defs>
-                    <rect width="108" height="108" rx="12" fill="url(#mark-grad)" />
-                    <text x="54" y="58" text-anchor="middle" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800" letter-spacing="-0.02em">MS</text>
-                </svg>
+                <table class="header-mark-layout">
+                    <tr>
+                        <td class="header-mark-gutter"></td>
+                        <td class="header-mark-cell">
+                            <svg class="header-mark" viewBox="0 0 108 108" xmlns="http://www.w3.org/2000/svg" aria-label="MS">
+                                <defs>
+                                    <linearGradient id="mark-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#2563eb" />
+                                        <stop offset="100%" stop-color="#4f46e5" />
+                                    </linearGradient>
+                                </defs>
+                                <rect width="108" height="108" rx="12" fill="url(#mark-grad)" />
+                                <text x="54" y="58" text-anchor="middle" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800" letter-spacing="-0.02em">MS</text>
+                            </svg>
+                        </td>
+                    </tr>
+                </table>
             </td>
             <td class="header-line-1">
                 <h1>Manish Sharma</h1>
