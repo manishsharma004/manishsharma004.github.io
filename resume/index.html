@@ -36,6 +36,7 @@
         /* Header square mark: side length = header-row-1 + header-row-2 heights */
         .header {
             width: 100%;
+            table-layout: fixed;
             background: #ffffff;
             background-image:
                 radial-gradient(420px 160px at 90% 0%, rgba(37, 99, 235, 0.12), transparent 60%),
@@ -90,7 +91,7 @@
 
         .header-stats {
             width: 170px;
-            padding: 10px 10mm 10px 8px;
+            padding: 10px 0 10px 8px;
             text-align: right;
             vertical-align: middle;
         }
@@ -181,8 +182,8 @@
         }
 
         .main {
-            width: 70%;
-            padding: 12px 10mm 14px 14px;
+            width: auto;
+            padding: 12px 0 14px 14px;
             background: #ffffff;
         }
 
