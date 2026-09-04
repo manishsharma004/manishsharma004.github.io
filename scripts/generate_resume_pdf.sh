@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Generate resume/manish-sharma-resume.pdf from resume/index.html.
-# Output: A4 portrait (210mm × 297mm) with 10mm top/bottom/right margins; flush left for sidebar.
+# Output: A4 portrait — 10mm top/right margins, flush left and bottom for sidebar.
 # Requires wkhtmltopdf: https://wkhtmltopdf.org/
 set -euo pipefail
 
@@ -24,7 +24,7 @@ fi
     --orientation Portrait \
     --dpi 96 \
     --margin-top 10mm \
-    --margin-bottom 10mm \
+    --margin-bottom 0 \
     --margin-left 0 \
     --margin-right 10mm \
     "$HTML" \
