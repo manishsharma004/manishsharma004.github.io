@@ -22,6 +22,7 @@
             margin: 0;
             width: 200mm; /* A4 width minus 10mm right margin */
             min-height: 277mm; /* A4 height minus 10mm top/bottom margins */
+            position: relative;
             font-family: 'Inter', Arial, sans-serif;
             font-size: 9pt;
             line-height: 1.4;
@@ -161,6 +162,22 @@
             color: #52607a;
         }
 
+        /* Full-height sidebar background (wkhtmltopdf-safe) */
+        .sidebar-bg {
+            position: absolute;
+            left: 0;
+            top: 29mm;
+            width: 60mm;
+            height: 248mm;
+            background: #0b1220;
+            z-index: 0;
+        }
+
+        .page-content {
+            position: relative;
+            z-index: 1;
+        }
+
         /* ---- Body layout ---- */
         .body-table {
             width: 100%;
@@ -170,15 +187,14 @@
 
         .body-table tr,
         .body-table td {
-            height: 100%;
             vertical-align: top;
         }
 
         .sidebar {
             width: 30%;
-            background: #0b1220;
+            background: transparent;
             color: #cbd5e1;
-            padding: 12px 11px 12px 11px;
+            padding: 12px 11px;
         }
 
         .main {
@@ -348,6 +364,8 @@
 </head>
 
 <body>
+    <div class="sidebar-bg" aria-hidden="true"></div>
+    <div class="page-content">
     <!-- Compact header -->
     <table class="header">
         <tr>
@@ -400,7 +418,7 @@
     <!-- Two-column body (real table — wkhtmltopdf-safe) -->
     <table class="body-table">
         <tr>
-            <td class="sidebar">
+            <td class="sidebar" valign="top">
                 <div class="ai-box">
                     <div class="ai-label">AI &amp; intelligent systems</div>
                     <p>Production RAG, GPT and STT pipelines wired into microservices and product surfaces.</p>
@@ -527,6 +545,7 @@
             </td>
         </tr>
     </table>
+    </div>
 </body>
 
 </html>
