@@ -9,7 +9,7 @@
         /* A4 print sheet: 210mm × 297mm — no left margin so sidebar is flush */
         @page {
             size: A4 portrait;
-            margin: 10mm 10mm 10mm 0;
+            margin: 10mm 10mm 0 0;
         }
 
         * { box-sizing: border-box; }
@@ -21,7 +21,8 @@
         body {
             margin: 0;
             width: 200mm; /* A4 width minus 10mm right margin */
-            min-height: 277mm; /* A4 height minus 10mm top/bottom margins */
+            min-height: 287mm; /* A4 height minus 10mm top margin only */
+            height: 287mm;
             position: relative;
             font-family: 'Inter', Arial, sans-serif;
             font-size: 9pt;
@@ -47,10 +48,44 @@
 
         .header td { padding: 0; }
 
-        .header-mark-wrap {
-            width: auto;
-            padding: 0;
+        /* Shared column widths — 30% of 200mm body */
+        .header-side,
+        .sidebar {
+            width: 60mm;
+        }
+
+        .header-side {
             vertical-align: middle;
+        }
+
+        .header-main {
+            width: auto;
+            vertical-align: top;
+            padding: 0;
+        }
+
+        .content-layout {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        .content-gutter {
+            width: 14px;
+            padding: 0;
+            font-size: 1px;
+            line-height: 1px;
+        }
+
+        .content-body {
+            padding: 0;
+            vertical-align: top;
+        }
+
+        .header-main-layout {
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: collapse;
         }
 
         .header-mark-layout {
@@ -65,7 +100,7 @@
 
         .header-mark-cell {
             width: 108px;
-            padding: 0 8px 0 0;
+            padding: 0;
             vertical-align: middle;
         }
 
@@ -77,14 +112,14 @@
         }
 
         .header-line-1 {
-            padding: 10px 12px 2px;
+            padding: 10px 0 2px 0;
             vertical-align: bottom;
             height: 54px;
             overflow: hidden;
         }
 
         .header-line-2 {
-            padding: 2px 12px 10px;
+            padding: 2px 0 10px 0;
             vertical-align: top;
             height: 54px;
             overflow: hidden;
@@ -162,13 +197,13 @@
             color: #52607a;
         }
 
-        /* Full-height sidebar background (wkhtmltopdf-safe) */
+        /* Full-height sidebar background — flush to page bottom */
         .sidebar-bg {
             position: absolute;
             left: 0;
             top: 29mm;
+            bottom: 0;
             width: 60mm;
-            height: 248mm;
             background: #0b1220;
             z-index: 0;
         }
@@ -191,7 +226,6 @@
         }
 
         .sidebar {
-            width: 30%;
             background: transparent;
             color: #cbd5e1;
             padding: 12px 11px;
@@ -199,8 +233,13 @@
 
         .main {
             width: auto;
-            padding: 12px 0 14px 14px;
+            padding: 0;
             background: #ffffff;
+        }
+
+        .main-body {
+            padding: 12px 0 10mm 0;
+            vertical-align: top;
         }
 
         .sec {
@@ -367,9 +406,9 @@
     <div class="sidebar-bg" aria-hidden="true"></div>
     <div class="page-content">
     <!-- Compact header -->
-    <table class="header">
+    <table class="header" cellpadding="0" cellspacing="0">
         <tr>
-            <td rowspan="2" class="header-mark-wrap">
+            <td class="header-side">
                 <table class="header-mark-layout">
                     <tr>
                         <td class="header-mark-gutter"></td>
@@ -388,35 +427,48 @@
                     </tr>
                 </table>
             </td>
-            <td class="header-line-1">
-                <h1>Manish Sharma</h1>
-                <p class="role">Senior Software Engineer</p>
-            </td>
-            <td rowspan="2" class="header-stats">
-                <div class="stat-n">11+</div>
-                <div class="stat-l">Years experience</div>
-                <div class="stat-n" style="margin-top:6px;">7</div>
-                <div class="stat-l">Companies</div>
-            </td>
-        </tr>
-        <tr>
-            <td class="header-line-2">
-                <span class="status"><span class="dot"></span>Bengaluru · IIT (ISM) Dhanbad · github.com/manishsharma004</span>
-                <div>
-                    <span class="chip chip-ai">RAG</span>
-                    <span class="chip chip-ai">GPT</span>
-                    <span class="chip chip-ai">STT</span>
-                    <span class="chip">Java</span>
-                    <span class="chip">Python</span>
-                    <span class="chip">React</span>
-                    <span class="chip">React Native</span>
-                </div>
+            <td class="header-main">
+                <table class="content-layout" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="content-gutter">&nbsp;</td>
+                        <td class="content-body">
+                            <table class="header-main-layout" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td class="header-line-1">
+                                        <h1>Manish Sharma</h1>
+                                        <p class="role">Senior Software Engineer</p>
+                                    </td>
+                                    <td rowspan="2" class="header-stats">
+                                        <div class="stat-n">11+</div>
+                                        <div class="stat-l">Years experience</div>
+                                        <div class="stat-n" style="margin-top:6px;">7</div>
+                                        <div class="stat-l">Companies</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="header-line-2">
+                                        <span class="status"><span class="dot"></span>Bengaluru · IIT (ISM) Dhanbad · github.com/manishsharma004</span>
+                                        <div>
+                                            <span class="chip chip-ai">RAG</span>
+                                            <span class="chip chip-ai">GPT</span>
+                                            <span class="chip chip-ai">STT</span>
+                                            <span class="chip">Java</span>
+                                            <span class="chip">Python</span>
+                                            <span class="chip">React</span>
+                                            <span class="chip">React Native</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
             </td>
         </tr>
     </table>
 
     <!-- Two-column body (real table — wkhtmltopdf-safe) -->
-    <table class="body-table">
+    <table class="body-table" cellpadding="0" cellspacing="0">
         <tr>
             <td class="sidebar" valign="top">
                 <div class="ai-box">
@@ -463,6 +515,10 @@
             </td>
 
             <td class="main">
+                <table class="content-layout" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="content-gutter">&nbsp;</td>
+                        <td class="main-body">
                 <div class="sec">Summary</div>
                 <p class="summary">
                     11+ years building customer-focused products across frontend, backend and distributed systems.
@@ -542,6 +598,9 @@
                     <strong>B.Tech, Computer Science &amp; Engineering</strong><br />
                     <span class="school">IIT (ISM) Dhanbad</span> · Jul 2011 — May 2015
                 </div>
+                        </td>
+                    </tr>
+                </table>
             </td>
         </tr>
     </table>
