@@ -88,6 +88,7 @@
                             id="is-landscape" /></label>
                 </div>
                 <div> <button onclick="preview(editor)">Preview</div>
+                <a id="preview-link" target="_blank">Preview Link</a>
                 <div class="jquery-files btn-group pagination-centered">
                     <div class="btn viewport-resize">240x320</div>
                     <div class="btn viewport-resize">320x480</div>
@@ -230,7 +231,9 @@
             console.log('header files', headerFiles);
             localStorage.setItem('editorValue', editor.getValue());
             localStorage.setItem('headerFiles', JSON.stringify(headerFiles));
-            viewport.src = URL.createObjectURL(new Blob([html], { type: "text/html" }));
+            const previewUrl = URL.createObjectURL(new Blob([html], { type: "text/html" }));
+            viewport.src = previewUrl;
+            $("#preview-link")[0].href = previewUrl;
         }
         var viewport = $(".view-port")[0];
         var editor = ace.edit("editor");
